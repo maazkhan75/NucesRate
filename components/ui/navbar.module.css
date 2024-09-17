@@ -1,0 +1,13 @@
+.input > input{
+    border: 0.5px solid gray;
+}
+.input > input:focus > input {
+    border: 0px;
+}
+
+.search_icon {
+    position: relative;
+    left: -2rem;
+    top: 0rem;
+	cursor: pointer;
+}

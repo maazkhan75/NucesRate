@@ -1,0 +1,21 @@
+import Filters from "@/components/professor_page/filters";
+import ProfessorsCards from "@/components/professor_page/professors_cards";
+import { ProfessorsPageUrl } from "@/components/types/professors_url_type";
+
+export default async function Index({ params, searchParams }: {  params: { slug: string }, searchParams?: { [key: string]: string }}) {
+    const page_number: number = Number(params.slug);
+
+    const url : ProfessorsPageUrl = {
+        prof_name: searchParams?.prof ? decodeURIComponent(searchParams!.prof) : null,
+        course : searchParams?.course ? decodeURIComponent(searchParams!.course) : null,
+        campus : searchParams?.campus ? decodeURIComponent(searchParams!.campus) : null,
+        department : searchParams?.dept ? decodeURIComponent(searchParams!.dept) : null,
+    };
+
+    return (
+        <div>
+            <Filters url={url} />
+            <ProfessorsCards page_number={page_number} url={url} />
+        </div>
+    );
+}

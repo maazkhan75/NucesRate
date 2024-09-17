@@ -1,0 +1,41 @@
+.cover {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+.card {
+    margin: 1rem;
+    border: 0.5px solid black;
+}
+
+.reviews_rating {
+    border-radius: 2rem;
+}
+
+.card_content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.course_badge {
+    margin: 0 0.5rem;
+}
+
+.prof_image {
+    border: 0.5px solid black;
+    border-radius: 0.5rem;
+    margin: 1rem 0.5rem;    
+}
+
+.partition {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}

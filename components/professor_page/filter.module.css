@@ -1,0 +1,16 @@
+.filters_buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+.cover_filters {
+    margin: 0 3rem;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+.cover_filters > div:nth-child(2) {
+    display: flex;
+    margin-left: 5rem;
+}
