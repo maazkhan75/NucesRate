@@ -3,39 +3,57 @@
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
-
+  
 .cards {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
 }
 
 .card {
-    margin: 1rem;
-    border: 0.5px solid black;
+    border: 1px solid rgb(255, 255, 255, 0.5);
 }
 
+  
 .reviews_rating {
     border-radius: 2rem;
 }
-
-.card_content {
+  
+.reviews_buttons {  
     display: flex;
     justify-content: space-around;
 }
-
+  
 .course_badge {
     margin: 0 0.5rem;
 }
-
+  
 .prof_image {
     border: 0.5px solid black;
-    border-radius: 0.5rem;
-    margin: 1rem 0.5rem;    
+    border-radius: 1rem;
 }
 
+.image_container {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
+  
 .partition {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 576px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

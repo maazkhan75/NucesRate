@@ -55,11 +55,11 @@ export function DepartmentsFilter({value, setValue} : {value: string | null, set
           variant="default"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[120px] md:w-[200px] lg:w-[200px] justify-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select Department..."}
+            : "Department "}
           <RiArrowDropDownFill style={{scale:'2'}} />
         </Button>
       </PopoverTrigger>
