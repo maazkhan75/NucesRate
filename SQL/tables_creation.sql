@@ -37,20 +37,6 @@ CREATE TABLE Professor_Courses (
     course_id int2 REFERENCES Courses(course_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TYPE material_type_enum AS ENUM ('Course Outline', 'Assignment', 'Quiz', 'Midterm Paper', 'Final Paper', 'Other');
-
-CREATE TABLE Material_Types (
-    material_type_id int2 PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-    material_type_name material_type_enum NOT NULL
-);
-
-CREATE TABLE Course_Materials (
-    material_id int4 PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-    course_id int2 REFERENCES Courses(course_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    material_type_id int2 REFERENCES Material_Types(material_type_id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    material_link text NOT NULL,
-    description text
-);
 
 CREATE TABLE Reviews (
     review_id int4 PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
