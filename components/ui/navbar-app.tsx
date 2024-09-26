@@ -25,25 +25,26 @@ export function NavbarApp() {
         </div>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
-              <span className="h-6 w-6">
-                <MenuIcon />
-              </span>
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
+            <div className="md:hidden">
+              <span className="mr-2"><ThemeSwitcher /></span>
+              <Button size="icon">
+                <span className="h-6 w-6 ">
+                  <MenuIcon />
+                </span>
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </div>
           </SheetTrigger>
           <SheetContent side="left">
             <div className="grid w-[200px] p-4">
               <Link href={"/professors/0"}>
                 <h2 style={{ textDecoration: "underline", cursor: "pointer" }}>Professors</h2>
               </Link>
-              <ThemeSwitcher />
               {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
             </div>
           </SheetContent>
         </Sheet>
       </div>
-      {/* Search Bar for Mobile */}
       <div className="w-full mt-2 md:hidden">
         <SearchBar />
       </div>

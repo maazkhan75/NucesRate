@@ -59,7 +59,7 @@ export function DepartmentsFilter({value, setValue} : {value: string | null, set
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Department "}
+            : "Department... "}
           <RiArrowDropDownFill style={{scale:'2'}} />
         </Button>
       </PopoverTrigger>

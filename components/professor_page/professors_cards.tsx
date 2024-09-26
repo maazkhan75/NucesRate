@@ -22,14 +22,15 @@ type ProfessorsArray = {
     prof_designation: string,
     average_rating: number,
     course_names: (string|null)[],
-    img_src: string
+    img_src: string,
+    dept_name: string
 }
 
 export default async function ProfessorsCards({page_number, url} : {page_number: number, url: ProfessorsPageUrl}) {
 
     const supabase = createClient();
 
-    const { data, error } = await supabase.rpc('get_professors_with_details', {
+    const { data, error } = await supabase.rpc('get_professors_by_filters', {
         input_campus_name : url.campus,
         input_dept_name : url.department,
         input_course_name: url.course,
@@ -37,6 +38,10 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
       }).range(page_number * 9, (page_number + 1) * 9 - 1);
 
     const professors = data as ProfessorsArray[];
+
+    if (error) {
+        throw Error('DB Error!');
+    }
 
     return (
         <>
@@ -46,10 +51,13 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
             <div className={styles.cards}>
                 {professors.map(professor => {
                     return(
-                        <Card className={styles.card} key={professor.prof_id}>
-                            <CardHeader>
-                                <CardTitle>{professor.prof_name}</CardTitle>
-                                <CardDescription>{professor.prof_designation}</CardDescription>
+                        <Card className="border-black dark:border-white" key={professor.prof_id}>
+                            <CardHeader className="flex justify-between items-center">
+                                <div>
+                                    <CardTitle>{professor.prof_name}</CardTitle>
+                                    <CardDescription>{professor.prof_designation}</CardDescription>
+                                </div>  
+                                <Badge className="text-right">{professor.dept_name}</Badge>
                             </CardHeader>
                             <CardContent>
                                 <div className={styles.partition}>
@@ -67,7 +75,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                                         </Button>
                                     </div>
                                     <div  className={styles.image_container}>
-                                        <Image className={styles.prof_image} height={300} width={200} src={professor.img_src || "/pictures/john_doe.jpg"} alt="Professor Image" />
+                                        <Image className={styles.prof_image} height={150} width={100} src={professor.img_src || "/pictures/john_doe.jpg"} alt="Professor Image" />
                                     </div>
                                 </div>
                             </CardContent>

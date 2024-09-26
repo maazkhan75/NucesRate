@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 
 export default function Filters({url} : {url: ProfessorsPageUrl}) {
     const [courseValue, setCourseValue] = useState(url.course);
-    const [campusValue, setCampusValue] = useState(url.campus);
     const [deptValue, setDeptValue] = useState(url.department);
     const router = useRouter(); 
 
@@ -18,7 +17,6 @@ export default function Filters({url} : {url: ProfessorsPageUrl}) {
         const queryParams = new URLSearchParams();
         if (url.prof_name) queryParams.append('prof', url.prof_name);
         if (courseValue) queryParams.append('course', courseValue);
-        if (campusValue) queryParams.append('campus', campusValue);
         if (deptValue) queryParams.append('dept', deptValue);
         router.push(`/professors/0/?${queryParams.toString()}`);
     }
@@ -27,7 +25,6 @@ export default function Filters({url} : {url: ProfessorsPageUrl}) {
         <div className={styles.cover_filters}>
             <div className={styles.filters_buttons}>
                 <CourseFilter value={courseValue} setValue={setCourseValue} />
-                <CampusFilter value={campusValue} setValue={setCampusValue} />
                 <DepartmentsFilter value={deptValue} setValue={setDeptValue} />
             </div>
             <div className={styles.button_apply}>
