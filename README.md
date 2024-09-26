@@ -1,7 +1,5 @@
 # 🎓 **NucesHub**
 
-This project provides a platform for university students to review professors, access study materials, and participate in a moderated feedback community. With an intuitive interface and powerful features, students can enhance their academic experience.
-
 
 ## **Project Overview:**
 The `NucesHub` platform is designed to assist FAST University students in reviewing professors and sharing feedback, helping other students choose their sections and offering teachers valuable suggestions for improvement, all while preserving student anonymity.
