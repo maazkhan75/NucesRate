@@ -1,7 +1,7 @@
-# 🎓 **NucesHub**
+# 🏫 **NucesHub**
 
 
-## **Project Overview:**
+## 📜 **Project Overview:**
 The `NucesHub` platform is designed to assist FAST University students in reviewing professors and sharing feedback, helping other students choose their sections and offering teachers valuable suggestions for improvement, all while preserving student anonymity.
 By fostering transparency and collaboration, the platform aims to enhance both learning and teaching experiences at institutions.
 Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but the project can be adapted and used by any educational institution seeking a similar platform for managing professor reviews.
@@ -29,7 +29,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 🚀 **Frontend:**
 - [Next.js](https://nextjs.org/) - React framework for server-side rendering
@@ -47,7 +47,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 ---
 
-## 🛠️ **How to Run**
+## 💻 **How to Run**
 
 1. **Clone the repository**:
    ```bash
