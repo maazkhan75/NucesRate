@@ -30,7 +30,7 @@ export default function Filters({url} : {url: ProfessorsPageUrl}) {
                 <CampusFilter value={campusValue} setValue={setCampusValue} />
                 <DepartmentsFilter value={deptValue} setValue={setDeptValue} />
             </div>
-            <div>
+            <div className={styles.button_apply}>
                 <Button size={"sm"} variant={"default"} onClick={applyFilter}>Apply Filters</Button>
             </div>
         </div>

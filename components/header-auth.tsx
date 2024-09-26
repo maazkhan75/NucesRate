@@ -6,8 +6,6 @@ import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-
 
 export default async function AuthButton() {
   const {
@@ -18,7 +16,6 @@ export default async function AuthButton() {
     return (
       <>
         <div className="flex gap-4 items-center">
-        <ThemeSwitcher />
           <div>
             <Badge
               variant={"default"}
@@ -54,7 +51,6 @@ export default async function AuthButton() {
 
   return user ? (
     <div className="flex items-center gap-4">
-      <ThemeSwitcher />
       Hey, {user.email?.slice(0, user.email?.indexOf('@'))}
 
       <DropdownMenu>
@@ -79,7 +75,6 @@ export default async function AuthButton() {
     </div>
   ) : (
     <div className="flex gap-2">
-      <ThemeSwitcher />
       <Button asChild size="sm" variant={"outline"}>
         <Link href="/sign-in">Sign in</Link>
       </Button>

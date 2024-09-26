@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
+import { NavbarApp } from "@/components/ui/navbar-app";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -29,11 +30,10 @@ export default function RootLayout({
         >
           <main className="min-h-screen">
             <div>
-              <Navbar />
+              <NavbarApp />
               <div>
                 {children}
               </div>
-
               {/* <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
                 <p>
                   Powered by{" "}

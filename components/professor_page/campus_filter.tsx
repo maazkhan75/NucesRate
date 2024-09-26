@@ -55,17 +55,17 @@ export function CampusFilter({value, setValue} : {value: string | null, setValue
           variant="default"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[120px] md:w-[200px] lg:w-[200px] justify-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select Campus..."}
+            : "Campus..."}
           <RiArrowDropDownFill style={{scale:'2'}} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search Campus..." className="h-9" />
+          <CommandInput placeholder="Campus..." className="h-9" />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>

@@ -1,16 +1,10 @@
-# 🎓 **AcadLens**
-
-This project provides a platform for university students to review professors, access study materials, and participate in a moderated feedback community. With an intuitive interface and powerful features, students can enhance their academic experience.
+# 🏫 **NucesHub**
 
 
-## **Project Overview:**
-The **AcadLens** is designed to help students review professors, share feedback, and access study materials related to their courses. Key functionalities include:
-- Anonymous professor reviews.
-- Access to a study materials including course outlines, assignments, learning playlists, and exam papers.
-- Moderated feedback to ensure quality and appropriateness.
-
+## 📜 **Project Overview:**
+The `NucesHub` platform is designed to assist FAST University students in reviewing professors and sharing feedback, helping other students choose their sections and offering teachers valuable suggestions for improvement, all while preserving student anonymity.
 By fostering transparency and collaboration, the platform aims to enhance both learning and teaching experiences at institutions.
-Although `AcadLens` is specifically designed for FAST-NUCES Lahore, but the project can be adapted and used by any educational institution seeking a similar platform for managing professor reviews and study materials.
+Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but the project can be adapted and used by any educational institution seeking a similar platform for managing professor reviews.
 
 ---
 
@@ -20,25 +14,22 @@ Although `AcadLens` is specifically designed for FAST-NUCES Lahore, but the proj
    - 🌟 Allow students to rate and provide comments on their professors anonymously.
    - 💬 Enable students to provide suggestions in reviews, helping professors improve and ensuring future students don't encounter the same learning challenges.
 
-2. **Access and Contribute to Study Materials:**
-   - 📚 Serve as a one-stop platform for students to access course outlines, assignments, quizzes, midterm papers, final exam papers, and other materials to excel in their exams.
-   - ✍️ Study materials can be uploaded only by AcadLens team, but students can email the AcadLens at acadlensofficial@gmail.com to contribute materials for upload.
 
-3. **Moderated Feedback:**
+2. **Moderated Feedback:**
    - 🛡️ Ensure that student reviews are moderated for appropriate content before being displayed. Provide moderators with the ability to approve or reject feedback based on community standards.
    - 📜 Provide a history of all moderator actions taken on student reviews, including approvals and rejections.
 
-4. **Filter and Rate Feedback:**
+3. **Filter and Rate Feedback:**
    - 👍👎 Students can upvote or downvote reviews for professors to highlight the most useful reviews.
    - 🔍 Reviews can be filtered based on various factors such as star ratings, most upvotes/downvotes, specific courses, and specific professors.
 
-5. **Request to Add Professors and Courses:**
-   - 📋 Students can request the AcadLens team to add professors who are not currently listed on the website by providing necessary details about the professor through a simple form to facilitate their inclusion in the database.
+4. **Request to Add Professors and Courses:**
+   - 📋 Students can request the NucesHub team to add professors who are not currently listed on the website by providing necessary details about the professor through a simple form to facilitate their inclusion in the database.
    - 📋 Students can also request the addition of specific courses if they are not available on the platform by submitting course details using the provided form to help expand the available course list.
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 🚀 **Frontend:**
 - [Next.js](https://nextjs.org/) - React framework for server-side rendering
@@ -56,11 +47,11 @@ Although `AcadLens` is specifically designed for FAST-NUCES Lahore, but the proj
 
 ---
 
-## 🛠️ **How to Run**
+## 💻 **How to Run**
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/maazkhan75/AcadLens.git
+   git clone https://github.com/maazkhan75/NucesHub.git
    ```
 2. Install dependencies:
    ```bash

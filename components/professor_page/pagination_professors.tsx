@@ -23,15 +23,15 @@ import { ProfessorsPageUrl } from "../types/professors_url_type";
             <PaginationPrevious href={`/professors/${page_number !== 0 ? page_number - 1 : page_number}?${queryParams.toString()}`} />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="/professors/0/">1</PaginationLink>
+            <PaginationLink href={`/professors/0?${queryParams.toString()}`}>1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="/professors/1/" isActive>
+            <PaginationLink href={`/professors/1?${queryParams.toString()}`} isActive>
               2
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="/professors/2/">3</PaginationLink>
+            <PaginationLink href={`/professors/2?${queryParams.toString()}`}>3</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationEllipsis />
