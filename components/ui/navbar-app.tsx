@@ -13,7 +13,7 @@ export function NavbarApp() {
       <div className="flex items-center justify-between w-full">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
           {/* <span className="h-6 w-6">icon</span> */}
-          <span className="text-lg font-semibold">AcadLens</span>
+          <span className="text-lg font-semibold">NucesHub</span>
         </Link>
         <div className="hidden md:flex gap-4">
           <SearchBar />

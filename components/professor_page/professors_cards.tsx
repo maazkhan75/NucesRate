@@ -75,7 +75,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                                         </Button>
                                     </div>
                                     <div  className={styles.image_container}>
-                                        <Image className={styles.prof_image} height={150} width={100} src={professor.img_src || "/pictures/john_doe.jpg"} alt="Professor Image" />
+                                        <Image className={styles.prof_image} height={150} width={100} src={professor.img_src || "/assets/imgs/female-avatar.png"} alt="Professor Image" />
                                     </div>
                                 </div>
                             </CardContent>
