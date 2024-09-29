@@ -3,6 +3,7 @@ import React from "react"
 import PlusIcon from "../../public/assets/icons/plus.svg";
 import MinusIcon from "../../public/assets/icons/minus.svg";
 import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const items = [
@@ -37,14 +38,44 @@ const AccordianItem=({
 }) => {
   const [isOpen,setIsOpen] = React.useState(false);
   return (
-    <div className="py-7 border-b border-white/30" onClick={()=> setIsOpen(!isOpen)}>
-              <div className="flex items-center">
-              <span className="flex-1 text-lg font-bold">{question}</span>
-              {isOpen ? <MinusIcon /> : <PlusIcon />}
-              </div>
-              <div className={clsx("mt-4",{'hidden': !isOpen,'': isOpen === true })}>{answer}</div>
-            </div>
-  )
+    <div
+      className="py-7 border-b border-white/30"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex items-center">
+        <span className="flex-1 text-lg font-bold">{question}</span>
+        {isOpen ? <MinusIcon /> : <PlusIcon />}
+      </div>
+      
+      //below clsx for having multiple classes with conditions and first one is
+      default(for learning...)
+      {/* className={clsx("mt-4", { hidden: !isOpen, "": isOpen === true })} */}
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+            animate={{
+              opacity: 1,
+              height: "auto",
+              marginTop: "16px",
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export const FAQs = () => {
