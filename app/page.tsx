@@ -21,7 +21,7 @@ export default async function Index() {
 
   return (
     <div>
-      
+      <Navbar/>
       <Hero />
       <Features />
       <ProductShowcase />
