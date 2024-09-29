@@ -47,9 +47,9 @@ const AccordianItem=({
         {isOpen ? <MinusIcon /> : <PlusIcon />}
       </div>
       
-      //below clsx for having multiple classes with conditions and first one is
+      {/* below clsx for having multiple classes with conditions and first one is
       default(for learning...)
-      {/* className={clsx("mt-4", { hidden: !isOpen, "": isOpen === true })} */}
+      className={clsx("mt-4", { hidden: !isOpen, "": isOpen === true })} */}
 
       <AnimatePresence>
         {isOpen && (
