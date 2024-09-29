@@ -33,6 +33,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 [typescript]: https://www.typescriptlang.org/
 [reactjs]: https://www./react.dev/
+[nextjs]: https://nextjs.org/
 [css3]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
 [tailwindcss]: https://tailwindcss.com/
 [shadcnui]: https://ui.shadcn.com/
@@ -41,19 +42,19 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" title="Typescript" width="40" height="40" />][typescript]
   &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" title="React.js" width="40" height="40" />][react]
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" title="React.js" width="40" height="40" />][reactjs]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next js" title="Next.js" width="40" height="40" />][nextjs]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="css3" title="CSS3"  width="40" height="40" />][css3]
    &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tailwind]
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tailwindcss]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcnUI.svg" alt="shad cn" title="Shadcn UI" width="40" height="40" />][shadcnui]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="python" title="Python" width="40" height="40" />][python]
   &nbsp;
-[<img src="https://img.shields.io/badge/Supabase-282C34?logo=supabase&logoColor=00e004" alt="Supabase logo" title="Supabase" height="25" />][supabase]
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"  alt="supabase" title="Supabase" width="40" height="40" />][supabase]
   &nbsp;
 
 
