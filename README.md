@@ -32,7 +32,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 ## 🛠️ Technologies Used
 
 [typescript]: https://www.typescriptlang.org/
-[reactjs]: https://www./react.dev/
+[reactjs]: https://react.dev/
 [nextjs]: https://nextjs.org/
 [css3]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
 [tailwindcss]: https://tailwindcss.com/
