@@ -31,21 +31,30 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 ## 🛠️ Technologies Used
 
-[tech_tools_anchor]: #icon
-
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" title="Typescript" width="40" height="40" />][tech_tools_anchor]
+<a href="https://www.typescriptlang.org/" title="Typescript">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" title="typescript" width="40" height="40" />
+</a>
   &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" title="React" width="40" height="40" />][tech_tools_anchor]
+<a href="https://www.react.dev/" title="React.js">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" title="React.js" width="40" height="40" />
+</a>
   &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next js" title="Next.js" width="40" height="40" />][tech_tools_anchor]
+<a href="https://nextjs.org/" title="Next.js">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next js" title="Next.js" width="40" height="40" />
+</a>
   &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="css3" title="CSS3"  width="40" height="40" />][tech_tools_anchor]
+<a href="https://en.wikipedia.org/wiki/CSS" title="CSS3">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="css3" title="CSS3"  width="40" height="40" />
+</a>
    &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tech_tools_anchor]
+<a href="https://tailwindcss.com/" title="CSS3">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />
+</a>
   &nbsp;
-[![shad cn](https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcnUI.svg)](https://shadcn.dev)
+<a href="https://ui.shadcn.com" title="Shadcn UI">
+    <img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcnUI.svg" alt="shad cn" width="40" height="40" />
+</a>
   &nbsp;
-
 
 ---
 
