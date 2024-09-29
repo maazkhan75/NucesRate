@@ -76,8 +76,10 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
    ```bash
    npm start
    ```
-4. Access the app at http://localhost:3000
-
+4. Access the app at
+```bash   
+   http://localhost:3000
+```
 ## 📬 Contact
 
 If you have any questions or feedback, feel free to reach out!
