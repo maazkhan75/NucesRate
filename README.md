@@ -43,7 +43,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
    &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tech_tools_anchor]
   &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcn-ui.svg" alt="shad cn"  title="Shadcn UI" width="40" height="40" />][tech_tools_anchor]
+[![shad cn](https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcnUI.svg)](https://shadcn.dev)
   &nbsp;
 
 
