@@ -1,7 +1,6 @@
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -15,11 +14,11 @@ import { ProfessorsPageUrl } from "../types/professors_url_type";
 import ProfNameAlert from "./professor_name_alert";
 import { createClient } from "@/utils/supabase/server";
 import { PaginationProfessors } from "./pagination_professors";
+import Link from "next/link";
 
 type ProfessorsArray = {
     prof_id: number,
     prof_name: string,
-    prof_designation: string,
     average_rating: number,
     course_names: (string|null)[],
     img_src: string,
@@ -27,11 +26,9 @@ type ProfessorsArray = {
 }
 
 export default async function ProfessorsCards({page_number, url} : {page_number: number, url: ProfessorsPageUrl}) {
-
     const supabase = createClient();
 
     const { data, error } = await supabase.rpc('get_professors_by_filters', {
-        input_campus_name : url.campus,
         input_dept_name : url.department,
         input_course_name: url.course,
         input_professor_name: url.prof_name
@@ -40,6 +37,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
     const professors = data as ProfessorsArray[];
 
     if (error) {
+        console.log(error);
         throw Error('DB Error!');
     }
 
@@ -55,7 +53,6 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                             <CardHeader className="flex justify-between items-center">
                                 <div>
                                     <CardTitle>{professor.prof_name}</CardTitle>
-                                    <CardDescription>{professor.prof_designation}</CardDescription>
                                 </div>  
                                 <Badge className="text-right">{professor.dept_name}</Badge>
                             </CardHeader>
@@ -70,9 +67,11 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                                                 <FaStar key={index} style={{margin: '0.1rem'}} color="gray" />
                                             ))}
                                         </Button>
+                                        <Link href={`/professor/${professor.prof_id}`}>
                                         <Button>
                                             See Reviews <FaArrowRight style={{marginLeft: '0.5rem'}} />
                                         </Button>
+                                        </Link>
                                     </div>
                                     <div  className={styles.image_container}>
                                         <Image className={styles.prof_image} height={150} width={100} src={professor.img_src || "/assets/imgs/female-avatar.png"} alt="Professor Image" />
@@ -81,8 +80,20 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                             </CardContent>
                             <CardFooter>
                                 <span>Courses:</span>
-                                {professor.course_names.map(courses => courses && <Badge key={courses} className={styles.course_badge}>{courses}</Badge>)}
-                            </CardFooter>
+                                {professor.course_names.map((course) => {
+                                    const abbreviation = course?.split(" ")                     
+                                    .filter(word => word.length > 1)
+                                    .map(word => word[0])
+                                    .join("");
+
+                                    return (
+                                    <Badge key={course} className="ml-2 hover:pointer cursor-pointer">
+                                        {course ? abbreviation : 'No Review'}
+                                    </Badge>
+                                    );
+                                })}
+                                </CardFooter>
+
                         </Card>
                     );
                 })}

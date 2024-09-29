@@ -1,23 +1,31 @@
-import { Navbar } from "@/components/landingPage/Navbar";
-import { Hero } from "@/components/landingPage/Hero";
-import { Features } from "@/components/landingPage/Features";
-import { ProductShowcase } from "@/components/landingPage/ProductShowcase";
-import { FAQs } from "@/components/landingPage/FAQs";
+import { Navbar } from "@/components/ui/navbar";
+import { Hero } from "@/components/landing_page/hero";
+import { ProductShowcase } from "@/components/landing_page/product_showcase";
+import { Features } from "@/components/landing_page/Features";
+import { FAQs } from "@/components/landing_page/FAQs";
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
+
 
 
 export default async function Index() {
-  return (
-    <>
-      {/* <Hero /> */}
-      {/* <main className="flex-1 flex flex-col gap-6 px-4">
-        <h2 className="font-medium text-xl mb-4">main page</h2>
-      </main> */}
+  // const supabase = createClient();
 
-      <Navbar />
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+
+  // if (user) {
+  //   return redirect("/professors/0");
+  // }
+
+  return (
+    <div>
+      
       <Hero />
       <Features />
       <ProductShowcase />
       <FAQs />
-    </>
+    </div>
   );
 }

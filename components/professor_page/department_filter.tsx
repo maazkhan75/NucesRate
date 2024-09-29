@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/command"
 import {
   Popover,
-  PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { NewPopoverContent } from "../ui/new_popover";
 
 const frameworks = [
   {
@@ -55,7 +55,7 @@ export function DepartmentsFilter({value, setValue} : {value: string | null, set
           variant="default"
           role="combobox"
           aria-expanded={open}
-          className="w-[120px] md:w-[200px] lg:w-[200px] justify-between"
+          className="w-[150px] md:w-[200px] lg:w-[200px] justify-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
@@ -63,7 +63,7 @@ export function DepartmentsFilter({value, setValue} : {value: string | null, set
           <RiArrowDropDownFill style={{scale:'2'}} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <NewPopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput placeholder="Search Department..." className="h-9" />
           <CommandList>
@@ -84,7 +84,7 @@ export function DepartmentsFilter({value, setValue} : {value: string | null, set
             </CommandGroup>
           </CommandList>
         </Command>
-      </PopoverContent>
+      </NewPopoverContent>
     </Popover>
   )
 }

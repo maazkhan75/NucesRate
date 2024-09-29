@@ -18,7 +18,6 @@ export default function ProfNameAlert({url}: {url: ProfessorsPageUrl}) {
   function removeNameFilter() {
     const queryParams = new URLSearchParams();
     if (url.course) queryParams.append('course', url.course);
-    if (url.campus) queryParams.append('campus', url.campus);
     if (url.department) queryParams.append('dept', url.department);
     router.push(`/professors/0/?${queryParams.toString()}`);
   }

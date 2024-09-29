@@ -13,7 +13,6 @@ import { ProfessorsPageUrl } from "../types/professors_url_type";
     const queryParams = new URLSearchParams();
     if (url.prof_name) queryParams.append('prof', url.prof_name);
     if (url.course) queryParams.append('course', url.course);
-    if (url.campus) queryParams.append('campus', url.campus);
     if (url.department) queryParams.append('dept', url.department);
 
     return (

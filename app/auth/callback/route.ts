@@ -1,22 +1,46 @@
 import { NextResponse } from 'next/server'
-// The client you created from the Server-Side Auth instructions
 import { createClient } from '@/utils/supabase/server'
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  // if "next" is in param, use it as the redirect URL
   const next = searchParams.get('next') ?? '/'
 
-  console.log(code);
   if (code) {
     const supabase = createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      const forwardedHost = request.headers.get('x-forwarded-host') // original origin before load balancer
+      const { data: { user } } = await supabase.auth.getUser();
+
+      if (user) {
+        const email = user.email;
+
+        const { data: existingStudent, error: fetchError } = await supabase
+          .from('students')
+          .select('stud_id')
+          .eq('stud_email', email)
+          .single();
+
+        if (fetchError && fetchError.code !== 'PGRST116') {
+          console.error('Error fetching student:', fetchError);
+          return NextResponse.redirect(`${origin}/auth/error`);
+        }
+
+        if (!existingStudent) {
+          const { error: insertError } = await supabase
+            .from('students')
+            .insert([{ stud_email: email }]); 
+
+          if (insertError) {
+            console.error('Error inserting student:', insertError);
+            return NextResponse.redirect(`${origin}/auth/error`);
+          }
+        }
+      }
+  
+      const forwardedHost = request.headers.get('x-forwarded-host')
       const isLocalEnv = process.env.NODE_ENV === 'development'
       if (isLocalEnv) {
-        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
         return NextResponse.redirect(`${origin}${next}`)
       } else if (forwardedHost) {
         return NextResponse.redirect(`https://${forwardedHost}${next}`)
@@ -26,6 +50,5 @@ export async function GET(request: Request) {
     }
   }
 
-  // return the user to an error page with instructions
   return NextResponse.redirect(`${origin}/auth/auth-code-error`)
 }

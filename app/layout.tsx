@@ -1,9 +1,9 @@
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Navbar from "@/components/ui/navbar";
-import { NavbarApp } from "@/components/ui/navbar-app";
-import { Footer } from "@/components/landingPage/Footer";
+import { Navbar } from "@/components/ui/navbar";
+import { Toaster } from "react-hot-toast";
+import { Footer } from "@/components/landing_page/footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -23,18 +23,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" forcedTheme="dark">
           <main className="min-h-screen">
             <div>
-              {/* <NavbarApp /> */}
-              <div>{children}</div>
-              <Footer/>
+              {/* <Navbar />*/
+              /*commented out for hiding it with loader temporarily */}
+              <div>
+                <Toaster />
+                {children}
+              </div>
             </div>
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

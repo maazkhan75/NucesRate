@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { ProfessorsPageUrl } from "../types/professors_url_type";
 import { Button } from "../ui/button";
-import { CampusFilter } from "./campus_filter";
 import { CourseFilter } from "./course_filter";
 import { DepartmentsFilter } from "./department_filter";
 import styles from './filter.module.css';
@@ -24,7 +23,7 @@ export default function Filters({url} : {url: ProfessorsPageUrl}) {
     return (
         <div className={styles.cover_filters}>
             <div className={styles.filters_buttons}>
-                <CourseFilter value={courseValue} setValue={setCourseValue} />
+                <span className="w-[150px] md:w-[200px] lg:w-[200px]"><CourseFilter deptId={null} value={courseValue} setValue={setCourseValue} /></span>
                 <DepartmentsFilter value={deptValue} setValue={setDeptValue} />
             </div>
             <div className={styles.button_apply}>

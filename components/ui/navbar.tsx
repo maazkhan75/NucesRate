@@ -1,19 +1,34 @@
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+"use client";
+import Image from "next/image";
+import logoImage from "../../public/assets/imgs/logo.png";
+import MenuIcon from "../../public/assets/icons/menu.svg";
+import { BiLogInCircle } from "react-icons/bi";
 import Link from "next/link";
+import GoogleSignInButton from "@/components/ui/google_sign_in";
 
-export default function Navbar() {
+export const Navbar = () => {
+  return (
+    <div className="bg-black">
+      <div className="px-4">
+        <div className="py-2 flex items-center justify-between">
+          <Link href={"/"}>
+            <Image
+              src={logoImage}
+              alt="NucesHub logo"
+              className="h-[7rem] w-auto"
+            />
+          </Link>
 
-    return (
-        <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-            <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-                
-        
-
-                
-                {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
-            </div>
-        </nav>
-    );
-}
+          <div className="inline-flex justify-center">
+            <a
+              href=""
+              className="flex items-center transition duration-300  px-4 py-1"
+            >
+              <GoogleSignInButton />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -31,19 +31,21 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 ## 🛠️ Technologies Used
 
-🚀 **Frontend:**
-- [Next.js](https://nextjs.org/) - React framework for server-side rendering
-- [React.js](https://reactjs.org/) - JavaScript library for building user interfaces
+[tech_tools_anchor]: #icon
 
-🔧 **Backend:**
-- [Node.js](https://nodejs.org/) - JavaScript runtime for server-side development
-- [Express.js](https://expressjs.com/) - Web application framework for Node.js
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" title="Typescript" width="40" height="40" />][tech_tools_anchor]
+  &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" title="React" width="40" height="40" />][tech_tools_anchor]
+  &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next js" title="Next.js" width="40" height="40" />][tech_tools_anchor]
+  &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="css3" title="CSS3"  width="40" height="40" />][tech_tools_anchor]
+   &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tech_tools_anchor]
+  &nbsp;
+[<img src="https://cdn.jsdelivr.net/npm/@shadcn/icons@latest/icons/logo.svg" alt="shad cn"  title="Shadcn UI" width="40" height="40" />][tech_tools_anchor]
+  &nbsp;
 
-🗄️ **Database:**
-- [Supabase](https://supabase.com/) - PostgreSQL database
-
-🌐 **Deployment:**
-- [Vercel](https://vercel.com/) - Platform for hosting and deploying web applications
 
 ---
 

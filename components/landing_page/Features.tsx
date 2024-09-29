@@ -1,6 +1,6 @@
 import { DiVim } from "react-icons/di";
 import EcosystemIcon from '../assets/icons/ecosystem.svg'
-import {Feature} from '../../components/landingPage/Feature'
+import {Feature} from '../../components/landing_page/Feature'
 
 const features = [
   {
