@@ -39,6 +39,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 [shadcnui]: https://ui.shadcn.com/
 [python]: https://www.python.org/
 [supabase]: https://supabase.com/
+[framermotion]: https://www.framer.com/motion/
 
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" title="Typescript" width="40" height="40" />][typescript]
   &nbsp;
@@ -56,6 +57,9 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"  alt="supabase" title="Supabase" width="40" height="40" />][supabase]
   &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/framermotion.svg"  alt="framer motion" title="Framer motion" width="40" height="40" />][framermotion]
+  &nbsp;
+  
 
 
 
