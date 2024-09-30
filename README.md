@@ -51,13 +51,13 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
    &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind css" title="Tailwind CSS" width="40" height="40" />][tailwindcss]
   &nbsp;
+[<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/framermotion.svg"  alt="framer motion" title="Framer motion" width="40" height="40" />][framermotion]
+  &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/shadcnUI.svg" alt="shad cn" title="Shadcn UI" width="40" height="40" />][shadcnui]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="python" title="Python" width="40" height="40" />][python]
   &nbsp;
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"  alt="supabase" title="Supabase" width="40" height="40" />][supabase]
-  &nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/maazkhan75/HostedAssets@main/icons/framermotion.svg"  alt="framer motion" title="Framer motion" width="40" height="40" />][framermotion]
   &nbsp;
   
 
