@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Toaster } from "react-hot-toast";
-import { Footer } from "@/components/landing_page/footer";
+import { Footer } from "@/components/ui/footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

@@ -67,3 +67,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.github-icon {
+  filter: brightness(1);
+  transition: filter 0.2s ease-in-out;
+}
+
+.github-icon:hover {
+  filter: brightness(1.5);
+}
