@@ -26,14 +26,13 @@ export default function RootLayout({
         <ThemeProvider attribute="class" forcedTheme="dark">
           <main className="min-h-screen">
             <div>
-              {/* <Navbar />*/
-              /*commented out for hiding it with loader temporarily */}
+              <Navbar />
               <div>
                 <Toaster />
                 {children}
               </div>
+              <Footer />
             </div>
-            <Footer />
           </main>
         </ThemeProvider>
       </body>

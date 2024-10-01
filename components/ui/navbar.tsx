@@ -1,10 +1,17 @@
-"use client";
 import Image from "next/image";
 import logoImage from "../../public/assets/imgs/logo.png";
 import MenuIcon from "../../public/assets/icons/menu.svg";
 import { BiLogInCircle } from "react-icons/bi";
 import Link from "next/link";
 import GoogleSignInButton from "@/components/ui/google_sign_in";
+import HeaderAuth from "@/components/header-auth";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import SearchBar from "./navbar_search_bar";
+import { EnvVarWarning } from "../env-var-warning";
+import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+
+
 
 export const Navbar = () => {
   return (
@@ -26,6 +33,7 @@ export const Navbar = () => {
             >
               <GoogleSignInButton />
             </a>
+            {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
           </div>
         </div>
       </div>
