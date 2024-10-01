@@ -77,3 +77,12 @@
 .github-icon:hover {
   filter: brightness(1.5);
 }
+
+
+.redirection-link{
+  transition: filter 0.2s ease-in-out;
+}
+
+.redirection-link:hover {
+  color:#0083af;
+}

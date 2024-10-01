@@ -11,13 +11,13 @@ export const Footer = () => {
           <div className="text-center">© NucesHub, Inc.</div>
           <ul className="flex justify-center items-center gap-5">
             <li>
-              <a>Privary Policy</a>
+              <a href="privacyPolicy" className="redirection-link">Privary Policy</a>
             </li>
             <li>
               <p>|</p>
             </li>
             <li>
-              <a>Terms & Conditions</a>
+            <a href="terms&conditions" className="redirection-link">Terms & Conditions</a>
             </li>
             <li>
               <a href="https://github.com/maazkhan75/NucesHub">
