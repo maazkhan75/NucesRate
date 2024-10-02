@@ -11,7 +11,7 @@ import { Fira_Sans } from "next/font/google";
 
 const fira_sans = Fira_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"], // Choose weights based on your need
+  weight: ["400", "500"],
 });
 
 
@@ -21,9 +21,7 @@ export const Hero = () => {
       <div className="absolute h-[400px] w-[1536px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#00a0f0] bg-[radial-gradient(closest-side,#000_86%,#00a0f0)] top-[calc(100%-96px)]"></div>
 
       <div className="container relative">
-        <p className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text [-webkit-background-clip:text]">
-          Community Driven Platform
-        </p>
+        <p className="custom-accent-gradient-text">Community Driven Platform</p>
         <div className="inline-flex relative">
           <h1 className="text-white text-6xl font-bold mb-3 tracking-tighter mt-10 inline-flex">
             Your Guide to <br /> Professors

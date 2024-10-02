@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image"
-import appScreen from "../../public/assets/imgs/prodImage.png";
+import appScreen from "../../public/assets/imgs/prodImage.jpg";
 import {
   motion,
   useScroll,
@@ -12,6 +12,15 @@ import React from "react";
 import PlusIcon from "../../public/assets/icons/plus.svg";
 import MinusIcon from "../../public/assets/icons/minus.svg";
 import clsx from "clsx";
+
+import { Fredoka } from "next/font/google";
+
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  weight: ["300","400"],
+});
+
+
 
 const items = [
   {
@@ -26,7 +35,7 @@ const items = [
   },
   {
     question:
-      "Can I request the addition of professors or courses that are not listed?",
+      "Can I request the addition of professors or courses?",
     answer:
       "Yes! Students can request the addition of professors or courses that are not currently available on NucesHub by submitting a basic form and the moderator can approve addition if he finds your data authentic.",
   },
@@ -113,16 +122,15 @@ const rotateX=useTransform(scrollYProgress,[0, 1], [40, 0])
 const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
 
   return (
-
     <div className="bg-gradient-to-b from-black via-[#0d2542] to-black py-[72px] sm:py-24 text-white">
       <div className="container">
-        <h2 className="text-center text-5xl sm:6xl font-bold tracking-tighter">
-          Intuitive interface
+        <h2 className="custom-accent-gradient-text text-center text-5xl sm:6xl font-bold tracking-tighter">
+          User-friendly interface
         </h2>
         <div className="max-w-xl mx-auto">
           <p className="text-xl text-center text-white/70 mt-5 ">
-            wait is over to see a masterpiece making your academic journey
-            simpler
+            Experience an effortlessly navigable design that allows students to
+            share their feedback and access reviews with ease.
           </p>
         </div>
 
@@ -137,7 +145,7 @@ const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
             <Image
               src={appScreen}
               className="mt-14"
-              width={400}
+              width={700}
               height={400}
               alt="the product screenshot"
               ref={appImage}
@@ -145,10 +153,12 @@ const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
           </motion.div>
         </div>
 
-        <h2 className="text-center font-bold text-5xl sm:6xl sm:max-w-[648px] mx-auto tracking-tighter pt-40">
+        <h2 className="custom-accent-gradient-text text-center font-bold text-5xl sm:6xl sm:max-w-[648px] mx-auto tracking-tighter pt-40">
           Frequently Asked Questions
         </h2>
-        <div className="mt-12 max-w-[648px] mx-auto">
+        <div
+          className={`${fredoka.className} text-white text-lg mb-3 mt-12 max-w-[648px] mx-auto`}
+        >
           {items.map(({ question, answer }) => (
             <AccordianItem question={question} answer={answer} key={question} />
           ))}

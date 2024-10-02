@@ -75,7 +75,7 @@
 }
 
 .github-icon:hover {
-  filter: brightness(1.5);
+  filter: brightness(2);
 }
 
 
@@ -84,5 +84,26 @@
 }
 
 .redirection-link:hover {
-  color:#0083af;
+  color:#fff;
+}
+
+
+
+.custom-accent-gradient-text {
+  background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+*::selection{
+  background-color: transparent;
+}
+
+
+.navbar-link:hover, .navbar-link:active{
+  background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }

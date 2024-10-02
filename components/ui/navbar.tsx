@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation"; // For Next.js 13 App Router
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { EnvVarWarning } from "../env-var-warning";
 import HeaderAuth from "@/components/header-auth";
+import { googleAuthSignIn } from "@/app/actions";
+
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +51,7 @@ export const Navbar = () => {
       {/* Full-screen Navbar */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-85 flex flex-col items-start justify-center transition-transform duration-300 transform origin-center scale-100 z-20">
-          <div className="flex flex-row w-full justify-center align-center">
+          <div className="flex flex-row w-full justify-center align-center mt-5">
             <button
               onClick={toggleMenu}
               className="p-2 rounded-full bg-white hover:bg-[#00a8f3] text-black focus:outline-none transition duration-300"
@@ -59,35 +61,35 @@ export const Navbar = () => {
           </div>
 
           <div
-            className="flex flex-col items-start p-8 space-y-8 text-white text-5xl w-full"
+            className="flex flex-col items-start p-8 space-y-5 text-white text-4xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <div
-              className="border-b border-gray-400 w-full pb-2 hover:text-[#00a8f3] cursor-pointer"
+              className="border-b border-gray-400 w-full pb-2 cursor-pointer navbar-link"
               onClick={() => handleLinkClick("/professors/0")}
             >
               Reviews
             </div>
             <div
-              className="border-b border-gray-400 w-full pb-2 hover:text-[#00a8f3] cursor-pointer"
-              onClick={() => handleLinkClick("/sign-in")}
+              className="border-b border-gray-400 w-full pb-2 navbar-link cursor-pointer"
+              onClick={() => googleAuthSignIn("google")}
             >
               Sign In
             </div>
             <div
-              className="border-b border-gray-400 w-full pb-2 hover:text-[#00a8f3] cursor-pointer"
+              className="border-b border-gray-400 w-full pb-2 navbar-link cursor-pointer"
               onClick={() => handleLinkClick("/privacyPolicy")}
             >
               Privacy Policy
             </div>
             <div
-              className="border-b border-gray-400 w-full pb-2 hover:text-[#00a8f3] cursor-pointer"
+              className="border-b border-gray-400 w-full pb-2 navbar-link cursor-pointer"
               onClick={() => handleLinkClick("/terms&conditions")}
             >
               Terms and Conditions
             </div>
             <div
-              className="border-b border-gray-400 w-full pb-2 hover:text-[#00a8f3] cursor-pointer"
+              className="border-b border-gray-400 w-full pb-2 navbar-link cursor-pointer"
               onClick={() => handleLinkClick("/sign-up")}
             >
               Log Out
