@@ -1,7 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Navbar } from "@/components/ui/navbar";
 import { Toaster } from "react-hot-toast";
 import { Footer } from "@/components/ui/footer";
 
@@ -26,7 +25,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" forcedTheme="dark">
           <main className="min-h-screen">
             <div>
-              <Navbar />
               <div>
                 <Toaster />
                 {children}

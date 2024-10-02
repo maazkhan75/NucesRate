@@ -17,11 +17,11 @@ const fira_sans = Fira_Sans({
 
 export const Hero = () => {
   return (
-    <div className="bg-black bg-[linear-gradient(to_bottom,#000,#0d2542_36%,#027cf5_75%)] pt-[10px] pb-[75px] relative overflow-clip text-center">
-      <div className="absolute h-[400px] w-[1536px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#027cf5] bg-[radial-gradient(closest-side,#000_88%,#027cf5)] top-[calc(100%-96px)]"></div>
+    <div className="bg-black bg-[linear-gradient(to_bottom,#000,#0d2542_36%,#00a0f0_75%)] pt-[10px] pb-[75px] relative overflow-clip text-center">
+      <div className="absolute h-[400px] w-[1536px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#00a0f0] bg-[radial-gradient(closest-side,#000_86%,#00a0f0)] top-[calc(100%-96px)]"></div>
 
       <div className="container relative">
-        <p className="bg-[linear-gradient(to_right,#fff_40%,#5ea9ff_54%,#0066ff_67%)] text-transparent bg-clip-text [-webkit-background-clip:text]">
+        <p className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text [-webkit-background-clip:text]">
           Community Driven Platform
         </p>
         <div className="inline-flex relative">

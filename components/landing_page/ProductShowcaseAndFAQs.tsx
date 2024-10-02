@@ -1,10 +1,17 @@
 "use client";
-import React from "react"
+import Image from "next/image"
+import appScreen from "../../public/assets/imgs/prodImage.png";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { useEffect, useRef} from "react"
+import React from "react";
 import PlusIcon from "../../public/assets/icons/plus.svg";
 import MinusIcon from "../../public/assets/icons/minus.svg";
 import clsx from "clsx";
-import { motion, AnimatePresence } from "framer-motion";
-
 
 const items = [
   {
@@ -29,14 +36,14 @@ const items = [
   },
 ];
 
-const AccordianItem=({
+const AccordianItem = ({
   question,
   answer,
-}:{
-  question:string;
-  answer:string;
+}: {
+  question: string;
+  answer: string;
 }) => {
-  const [isOpen,setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <div
       className="py-7 border-b border-white/30"
@@ -46,7 +53,7 @@ const AccordianItem=({
         <span className="flex-1 text-lg font-bold">{question}</span>
         {isOpen ? <MinusIcon /> : <PlusIcon />}
       </div>
-      
+
       {/* below clsx for having multiple classes with conditions and first one is
       default(for learning...)
       className={clsx("mt-4", { hidden: !isOpen, "": isOpen === true })} */}
@@ -76,13 +83,63 @@ const AccordianItem=({
       </AnimatePresence>
     </div>
   );
-}
+};
 
-export const FAQs = () => {
+
+export const ProductShowcaseAndFAQs = () => {
+
+const appImage = useRef<HTMLImageElement>(null);
+
+const {scrollYProgress}= useScroll({
+  target: appImage,
+  offset: ["start end","end end"],
+
+})
+
+//for viewing scrollProgress values in console
+// useEffect(() => {
+//    scrollYProgress.on('change',(latestValue) => console.log('latestValue: ', latestValue));
+// }, []);
+
+// As our srollYProgress values go from 0,1 we want our rotateX values to go from 15 to 0
+const rotateX=useTransform(scrollYProgress,[0, 1], [40, 0])
+
+const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
+
   return (
-    <div className="bg-black text-white bg-gradient-to-b from-[#027cf5] to-black py-[72-px] sm:py-24">
+
+    <div className="bg-gradient-to-b from-black via-[#0d2542] to-black py-[72px] sm:py-24 text-white">
       <div className="container">
-        <h2 className="text-center font-bold text-5xl sm:6xl sm:max-w-[648px] mx-auto tracking-tighter ">
+        <h2 className="text-center text-5xl sm:6xl font-bold tracking-tighter">
+          Intuitive interface
+        </h2>
+        <div className="max-w-xl mx-auto">
+          <p className="text-xl text-center text-white/70 mt-5 ">
+            wait is over to see a masterpiece making your academic journey
+            simpler
+          </p>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <motion.div
+            style={{
+              opacity: changeOpacity, //changing opacity
+              rotateX: rotateX, //how much rotated
+              transformPerspective: "800px", //transformPerspective refers to the distance between the viewer and the 3D object being transformed
+            }}
+          >
+            <Image
+              src={appScreen}
+              className="mt-14"
+              width={400}
+              height={400}
+              alt="the product screenshot"
+              ref={appImage}
+            />
+          </motion.div>
+        </div>
+
+        <h2 className="text-center font-bold text-5xl sm:6xl sm:max-w-[648px] mx-auto tracking-tighter pt-40">
           Frequently Asked Questions
         </h2>
         <div className="mt-12 max-w-[648px] mx-auto">
