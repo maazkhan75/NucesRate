@@ -1,10 +1,7 @@
 "use client";
 import React from "react"
-import PlusIcon from "../../public/assets/icons/plus.svg";
-import MinusIcon from "../../public/assets/icons/minus.svg";
-import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { MinusIcon, PlusIcon } from "lucide-react";
 
 const items = [
   {
