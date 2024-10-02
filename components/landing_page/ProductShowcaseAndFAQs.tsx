@@ -15,24 +15,30 @@ import clsx from "clsx";
 
 const items = [
   {
-    question: "What payment methods do you accept?",
+    question: "Will my identity be exposed if I review any professor?",
     answer:
-      "We accept all major credit cards, PayPal, and various other payment methods depending on your location. Please contact our support team for more information on accepted payment methods in your region.",
+      "No, privacy is our top priority. Your review will be displayed anonymously, protecting your identity while allowing you to provide valuable feedback.",
   },
   {
-    question: "How does the pricing work for teams?",
+    question: "How are the reviews moderated on NucesHub?",
     answer:
-      "Our pricing is per user, per month. This means you only pay for the number of team members you have on your account. Discounts are available for larger teams and annual subscriptions.",
+      "All student reviews are moderated to ensure appropriate content before being displayed. Moderators have the authority to approve or reject feedback based on community standards, and a history of moderator actions, including approvals and rejections, is maintained for transparency.",
   },
   {
-    question: "Can I change my plan later?",
+    question:
+      "Can I request the addition of professors or courses that are not listed?",
     answer:
-      "Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and reflected in your next billing cycle.",
+      "Yes! Students can request the addition of professors or courses that are not currently available on NucesHub by submitting a basic form and the moderator can approve addition if he finds your data authentic.",
   },
   {
-    question: "Is my data secure?",
+    question: "Can anyone post reviews here?",
     answer:
-      "Security is our top priority. We use state-of-the-art encryption and comply with the best industry practices to ensure that your data is stored securely and accessed only by authorized users.",
+      "No, only users with a nu.edu.pk Google account are allowed to post reviews and like or dislike other students' reviews. This ensures that feedback is provided by verified FAST University students.",
+  },
+  {
+    question: "Are there any rules for writing a review?",
+    answer:
+      "Yes, there are rules for writing reviews. You should not use slang words, and while you can point out negative aspects of a professor, it must be done in appropriate language. Using violent or abusive language may result in a ban from the platform.",
   },
 ];
 
