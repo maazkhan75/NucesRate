@@ -2,7 +2,6 @@ import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import { Footer } from "@/components/ui/footer";
 import { NavbarApp } from "@/components/ui/navbar-app";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -31,7 +30,6 @@ export default function RootLayout({
                 <Toaster />
                 {children}
               </div>
-              <Footer />
             </div>
           </main>
         </ThemeProvider>

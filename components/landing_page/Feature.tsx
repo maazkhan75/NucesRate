@@ -10,7 +10,7 @@ export const Feature = ({
 }: {
   title: string;
   description: string;
-  icon: string; // Type remains string as we are passing the image path
+  icon: string | StaticImageData; // Type remains string as we are passing the image path
 }) => {
   const offsetX = useMotionValue(-100);
   const offsetY = useMotionValue(-100);
