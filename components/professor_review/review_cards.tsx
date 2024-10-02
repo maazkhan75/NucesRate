@@ -2,12 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import FiltersReviewPage from "./filters_review_page";
 import { ReviewType } from "./reviews";
-import { ChevronDown, Star } from 'lucide-react';
+import { Star, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { Button } from '../ui/button';
+import { submitVoteAction } from '@/app/actions';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
     const [filteredReviews, setFilteredReviews] = useState<ReviewType[]>(reviews);
     const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
     const [selectedRating, setSelectedRating] = useState<number | null>(null);
+    const router = useRouter();
+
 
     const distinctCourses = Array.from(new Set(reviews.map(review => review.course_name)));
 
@@ -24,6 +30,18 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
 
         setFilteredReviews(filtered);
     }, [selectedCourse, selectedRating, reviews]);
+
+    async function handleVote(review_id: number, vote_type: 'upvote' | 'downvote'){
+        console.log(`Review ID: ${review_id}, Vote Type: ${vote_type}`);
+
+        const { success, message } = await submitVoteAction(review_id, vote_type);
+
+        if (success) {
+            router.refresh();;
+        } else {
+            toast.error(message);
+        }
+    };
 
     return (
         <div className="bg-card text-card-foreground rounded-3xl p-6 shadow-lg">
@@ -51,7 +69,27 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
                         </div>
                         <p className="text-sm mb-2">
                             {review.comment}
-                        </p>
+                        </p>    
+                        <div className="flex space-x-2 mt-2 mb-2">
+                            <Button
+                                variant={review.user_vote === 'upvote' ? 'outline' : 'default'}
+                                size="sm"
+                                className="flex items-center space-x-1"
+                                onClick={() => handleVote(review.review_id, 'upvote')}
+                            >
+                                <ThumbsUp className="w-3 h-3" />
+                                <span>{review.upvotes}</span>
+                            </Button>
+                            <Button
+                                variant={review.user_vote === 'downvote' ? 'outline' : 'default'}
+                                size="sm"
+                               className={`flex items-center space-x-1`}
+                                onClick={() => handleVote(review.review_id, 'downvote')}
+                            >
+                                <ThumbsDown  className="w-3 h-3" />
+                                <span>{review.downvotes}</span>
+                            </Button>
+                        </div>
                         <div className="flex space-x-2">
                             <span className="bg-background text-xs px-2 py-1 rounded-full">{review.course_name}</span>
                         </div>

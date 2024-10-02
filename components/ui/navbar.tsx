@@ -22,17 +22,14 @@ export const Navbar = () => {
             <Image
               src={logoImage}
               alt="NucesHub logo"
-              className="h-[7rem] w-auto"
+              className="h-[5rem] w-auto"
             />
           </Link>
-
-          <div className="inline-flex justify-center">
-            <a
-              href=""
-              className="flex items-center transition duration-300  px-4 py-1"
-            >
-              <GoogleSignInButton />
-            </a>
+          <div className="inline-flex justify-center gap-4 items-center">
+            <SearchBar />
+            <Link href={"/professors/0"}>
+              <h2 style={{ textDecoration: "underline", cursor: "pointer" }}>Professors</h2>
+            </Link>
             {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
           </div>
         </div>
