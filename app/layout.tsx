@@ -26,7 +26,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" forcedTheme="dark">
           <main className="min-h-screen">
             <div>
-              <NavbarApp />
+              {/* <NavbarApp /> */}
               <div>
                 <Toaster />
                 {children}
