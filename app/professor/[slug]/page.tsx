@@ -43,7 +43,7 @@ export default async function ProfessorProfile({params} : {params: { slug: strin
   const avg_rating = await getProfAvgRating();
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-6">
+    <div className="min-h-screen bg-black text-foreground p-6">
       <div className="max-w-4xl mx-auto space-y-6">
         <ProfessorInfo name={professor.prof_name} dept={professor.dept_name} img={professor.img_src} />
 

@@ -1,8 +1,8 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useTransition } from 'react';
 import FiltersReviewPage from "./filters_review_page";
 import { ReviewType } from "./reviews";
-import { Star, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { Star, ThumbsDown, ThumbsUp, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { submitVoteAction } from '@/app/actions';
 import toast from 'react-hot-toast';
@@ -12,8 +12,10 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
     const [filteredReviews, setFilteredReviews] = useState<ReviewType[]>(reviews);
     const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
     const [selectedRating, setSelectedRating] = useState<number | null>(null);
+    const [isPending, startTransition] = useTransition();
+    const [pendingVoteId, setPendingVoteId] = useState<number | null>(null);
+    const [pendingVoteType, setPendingVoteType] = useState<'upvote' | 'downvote' | null>(null);
     const router = useRouter();
-
 
     const distinctCourses = Array.from(new Set(reviews.map(review => review.course_name)));
 
@@ -31,16 +33,22 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
         setFilteredReviews(filtered);
     }, [selectedCourse, selectedRating, reviews]);
 
-    async function handleVote(review_id: number, vote_type: 'upvote' | 'downvote'){
-        console.log(`Review ID: ${review_id}, Vote Type: ${vote_type}`);
+    async function handleVote(review_id: number, vote_type: 'upvote' | 'downvote') {
+        setPendingVoteId(review_id);
+        setPendingVoteType(vote_type);
 
-        const { success, message } = await submitVoteAction(review_id, vote_type);
+        startTransition(async () => {
+            const { success, message } = await submitVoteAction(review_id, vote_type);
 
-        if (success) {
-            router.refresh();;
-        } else {
-            toast.error(message);
-        }
+            if (success) {
+                router.refresh();
+            } else {
+                toast.error(message);
+            }
+
+            setPendingVoteId(null);
+            setPendingVoteType(null);
+        });
     };
 
     return (
@@ -53,6 +61,7 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
                 setSelectedRating={setSelectedRating}
                 distinctCourses={distinctCourses}
             />
+            {isPending && <div className="text-sm text-muted-foreground mt-2 mb-2">Processing your vote...</div>}
             {
                 filteredReviews.map((review) => (
                     <div key={review.review_id} className="bg-muted rounded-3xl p-4 mb-4">
@@ -76,18 +85,28 @@ export default function ReviewCards({ reviews }: { reviews: ReviewType[] }) {
                                 size="sm"
                                 className="flex items-center space-x-1"
                                 onClick={() => handleVote(review.review_id, 'upvote')}
+                                disabled={isPending && pendingVoteId === review.review_id && pendingVoteType === 'upvote'}
                             >
                                 <ThumbsUp className="w-3 h-3" />
-                                <span>{review.upvotes}</span>
+                                {isPending && pendingVoteId === review.review_id && pendingVoteType === 'upvote' ? (
+                                    <Loader2 className="w-3 h-3 animate-spin" />
+                                ) : (
+                                    <span>{review.upvotes}</span>
+                                )}
                             </Button>
                             <Button
                                 variant={review.user_vote === 'downvote' ? 'outline' : 'default'}
                                 size="sm"
                                className={`flex items-center space-x-1`}
                                 onClick={() => handleVote(review.review_id, 'downvote')}
+                                disabled={isPending && pendingVoteId === review.review_id && pendingVoteType === 'downvote'}
                             >
-                                <ThumbsDown  className="w-3 h-3" />
-                                <span>{review.downvotes}</span>
+                                <ThumbsDown className="w-3 h-3" />
+                                {isPending && pendingVoteId === review.review_id && pendingVoteType === 'downvote' ? (
+                                    <Loader2 className="w-3 h-3 animate-spin" />
+                                ) : (
+                                    <span>{review.downvotes}</span>
+                                )}
                             </Button>
                         </div>
                         <div className="flex space-x-2">

@@ -2,6 +2,7 @@
 import GithubIcon from "../../public/assets/icons/github.png";
 import Image from "next/image";
 import "../../app/globals.css";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -11,13 +12,13 @@ export const Footer = () => {
           <div className="text-center">© NucesHub, Inc.</div>
           <ul className="flex justify-center items-center gap-5">
             <li>
-              <a href="privacyPolicy" className="redirection-link">Privary Policy</a>
+              <Link href={"/privacyPolicy"} className="redirection-link">Privary Policy</Link>
             </li>
             <li>
               <p>|</p>
             </li>
             <li>
-            <a href="terms&conditions" className="redirection-link">Terms & Conditions</a>
+              <Link href={"/terms&conditions"} className="redirection-link">Terms & Conditions</Link>
             </li>
             <li>
               <a href="https://github.com/maazkhan75/NucesHub">
