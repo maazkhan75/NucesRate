@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import Image from "next/image"; // Import the Image component
+import Image, { StaticImageData } from "next/image"; // Import StaticImageData
+
 
 export const Feature = ({
   title,

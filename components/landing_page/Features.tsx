@@ -4,6 +4,7 @@ import EcosystemIcon from '../assets/icons/ecosystem.svg'
 import AnonymousReviewIcon from "../../public/assets/icons/anonymous.png";
 import ModeratedFeedbackIcon from "../../public/assets/icons/moderation.png";
 import FiltersIcon from "../../public/assets/icons/filter.png";
+import Image, { StaticImageData } from "next/image"; // Import StaticImageData
 
 
 
