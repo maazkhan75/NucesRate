@@ -12,7 +12,7 @@ export default async function Index({ params, searchParams }: {  params: { slug:
     };
 
     return (
-        <div>
+        <div className="bg-black">
             <Filters url={url} />
             <ProfessorsCards page_number={page_number} url={url} />
         </div>

@@ -19,7 +19,7 @@ export async function googleAuthSignIn(provider: Provider) {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: 'https://nuceshub.vercel.app/auth/callback'
+      redirectTo: 'https://reviewfast.vercel.app/auth/callback'
     },
   })
 
@@ -50,10 +50,6 @@ export async function submitReviewAction(rating: number, selectedCourse: string 
     };
   }
 
-  console.log("Rating:", rating);
-  console.log("Selected Course:", selectedCourse);
-  console.log("Comment:", comment);
-
   const { data, error } = await supabase.rpc('add_review', {
     p_prof_id: prof_id,
     p_comment: comment,
@@ -73,5 +69,49 @@ export async function submitReviewAction(rating: number, selectedCourse: string 
   return {
     success: true,
     message: "Review submitted successfully.",
+  };
+}
+
+
+export async function submitVoteAction(review_id: number, vote_type: 'upvote' | 'downvote') {
+  const supabase = createClient();
+
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      success: false,
+      message: "Sign-in with uni email!",
+    };
+  }
+
+  if (user.email && !user.email.endsWith('@lhr.nu.edu.pk')) {
+    return {
+      success: false,
+      message: "lhr.nu.edu.pk required",
+    };
+  }  
+
+  const { data, error } = await supabase.rpc('cast_vote', {
+    input_student_email: user.email,
+    input_review_id: review_id,
+    input_vote_type: vote_type
+  });
+
+  console.log(data, error);
+
+  if (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Error Adding Like/Dislike!",
+    };
+  }
+
+  return {
+    success: true,
+    message: "Like/Dislike submitted successfully.",
   };
 }

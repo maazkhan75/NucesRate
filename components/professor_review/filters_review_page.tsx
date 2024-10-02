@@ -23,11 +23,11 @@ const FiltersReviewPage = ({
     distinctCourses: string[]
 }) => {
     return (
-        <div className="flex justify-between mb-6">
+        <div className="flex gap-4 mb-6 flex-wrap">
             {/* Rating Filter */}
             <DropdownMenu>
             <DropdownMenuTrigger className="bg-muted rounded-full p-4 flex items-center space-x-2">
-                <span>{selectedRating ? `${selectedRating} Star` : "All Ratings"}</span>
+                <span className='text-sm'>{selectedRating ? `${selectedRating} Star` : "All Ratings"}</span>
                 <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
 
@@ -45,7 +45,7 @@ const FiltersReviewPage = ({
 
             <DropdownMenu>
                 <DropdownMenuTrigger className="bg-muted rounded-full p-4 max-w-xs flex items-center space-x-2">
-                    <span>{selectedCourse || "All Courses"}</span>
+                    <span className='text-sm'>{selectedCourse || "All Courses"}</span>
                     <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
 

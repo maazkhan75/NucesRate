@@ -52,7 +52,7 @@ export function AddReviewButton({ prof_id }: { prof_id: number }) {
       <DrawerTrigger asChild>
         <button
           onClick={() => setIsOpen(true)} // Open drawer on button click
-          className="bg-primary text-primary-foreground rounded-full p-4 flex items-center hover:bg-primary/90 transition-colors"
+          className="text-sm bg-primary text-primary-foreground rounded-full p-4 flex items-center hover:bg-primary/90 transition-colors"
         >
           <Pencil className="w-4 h-4 mr-2" />
           Write a Review

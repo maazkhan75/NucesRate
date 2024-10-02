@@ -2,6 +2,7 @@
 import GithubIcon from "../../public/assets/icons/github.png";
 import Image from "next/image";
 import "../../app/globals.css";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
