@@ -12,12 +12,11 @@ import React from "react";
 import PlusIcon from "../../public/assets/icons/plus.svg";
 import MinusIcon from "../../public/assets/icons/minus.svg";
 import clsx from "clsx";
+import { Outfit } from "next/font/google";
 
-import { Fredoka } from "next/font/google";
-
-const fredoka = Fredoka({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300","400"],
+  weight: ["200", "400"],
 });
 
 
@@ -37,7 +36,7 @@ const items = [
     question:
       "Can I request the addition of professors or courses?",
     answer:
-      "Yes! Students can request the addition of professors or courses that are not currently available on NucesHub by submitting a basic form and the moderator can approve addition if he finds your data authentic.",
+      "Yes, Students can request the addition of professors or courses that are not currently available on NucesHub by submitting a basic form and the moderator can approve addition if he finds your data authentic.",
   },
   {
     question: "Can anyone post reviews here?",
@@ -65,7 +64,7 @@ const AccordianItem = ({
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex items-center">
-        <span className="flex-1 text-lg font-bold">{question}</span>
+        <span className="flex-1 text-lg font-bold mr-5">{question}</span>
         {isOpen ? <MinusIcon /> : <PlusIcon />}
       </div>
 
@@ -92,7 +91,9 @@ const AccordianItem = ({
               marginTop: 0,
             }}
           >
-            {answer}
+            <span className="text-md font-[200]">
+              {answer}
+            </span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -157,7 +158,7 @@ const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
           Frequently Asked Questions
         </h2>
         <div
-          className={`${fredoka.className} text-white text-lg mb-3 mt-12 max-w-[648px] mx-auto`}
+          className={`${outfit.className} text-white text-lg mb-3 mt-12 max-w-[648px] mx-auto`}
         >
           {items.map(({ question, answer }) => (
             <AccordianItem question={question} answer={answer} key={question} />

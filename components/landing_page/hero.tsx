@@ -1,8 +1,8 @@
-import { Quicksand } from "next/font/google";
+import { Outfit } from "next/font/google";
 import Link from "next/link";
 
 
-const quicksand = Quicksand({
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400"], // Choose weights based on your need
 });
@@ -17,25 +17,23 @@ const fira_sans = Fira_Sans({
 
 export const Hero = () => {
   return (
-    <div className="bg-black bg-[linear-gradient(to_bottom,#000,#0d2542_36%,#00a0f0_75%)] pt-[10px] pb-[75px] relative overflow-clip text-center">
-      <div className="absolute h-[400px] w-[1536px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#00a0f0] bg-[radial-gradient(closest-side,#000_86%,#00a0f0)] top-[calc(100%-96px)]"></div>
-
-      <div className="container relative">
-        <p className="custom-accent-gradient-text">Community Driven Platform</p>
+    <div className="bg-black bg-[linear-gradient(to_bottom,#000,#0d2542_36%,##0d2542)] pt-[10px] pb-[75px] relative overflow-clip text-center">
+      <div className="container">
+        {/* <p className="text-white ">Community Driven Platform</p> */}
         <div className="inline-flex relative">
-          <h1 className="text-white text-6xl font-bold mb-3 tracking-tighter mt-10 inline-flex">
+          <h1 className="custom-accent-gradient-text text-6xl font-bold mb-3 tracking-tighter mt-6 inline-flex">
             Your Guide to <br /> Professors
           </h1>
         </div>
-        <p className={`${quicksand.className} text-white text-lg mb-3`}>
-          NucesHub supports your academic journey by offering anonymous reviews
-          , helping you choose the best professors and excel in your studies.
+        <p className={`${outfit.className} text-white/80 text-lg mb-1`}>
+          NucesHub helps you choose top professors with anonymous reviews for
+          academic success.
         </p>
 
         <div className="items-center justify-center pt-10">
           <Link
             href="/professors/0"
-            className={`${fira_sans.className} text-lg mb-3 text-black bg-white bg-opacity-85 hover:bg-opacity-100 transition duration-300 font-[500] rounded-lg px-4 py-2 mr-2`}
+            className={`${fira_sans.className} text-md mb-3 text-white bg-black bg-opacity-85 hover:bg-opacity-100 transition duration-300 font-[500] border-2 border-white rounded-xl px-4 py-2 mr-2`}
           >
             Get Started
           </Link>
