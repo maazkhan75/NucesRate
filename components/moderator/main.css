@@ -30,3 +30,7 @@ align-items: center;
 .Card h2{
     margin-bottom: 1rem;
 }
+
+.Card h2:hover{
+    color: rgb(168, 168, 168);
+}
