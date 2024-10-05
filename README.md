@@ -86,7 +86,5 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 ```
 ## 📬 Contact
 
-If you have any questions or feedback, feel free to reach out!
-<br>
-`nuceshub@gmail.com`
+If you have any questions or feedback, feel free to reach out at `nuceshub@gmail.com`
    
