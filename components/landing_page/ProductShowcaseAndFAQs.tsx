@@ -16,7 +16,7 @@ import { Outfit } from "next/font/google";
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["200", "400"],
+  weight: ["200", "300"],
 });
 
 
@@ -123,7 +123,7 @@ const rotateX=useTransform(scrollYProgress,[0, 1], [40, 0])
 const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
 
   return (
-    <div className="bg-gradient-to-b from-black via-[#0d2542] to-black py-[72px] sm:py-24 text-white">
+    <div className="bg-gradient-to-b from-black via-[#01152b] to-black py-[72px] sm:py-24 text-white">
       <div className="container">
         <h2 className="custom-accent-gradient-text text-center text-5xl sm:6xl font-bold tracking-tighter">
           User-friendly interface

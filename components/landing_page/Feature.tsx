@@ -1,7 +1,14 @@
 "use client";
+import { Outfit, Fira_Sans } from "next/font/google";
 import { useEffect, useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import Image, { StaticImageData } from "next/image"; // Import StaticImageData
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400","500"],
+});
+
 
 
 export const Feature = ({
@@ -36,10 +43,10 @@ export const Feature = ({
   return (
     <div
       key={title}
-      className="border border-white/30 px-5 py-10 text-center rounded-xl sm:flex-1 relative"
+      className="border border-white/30 px-5 py-10 mt-1 text-center rounded-xl sm:flex-1 relative"
     >
       <motion.div
-        className="absolute inset-0 border-4 border-[#4702f5] rounded-xl"
+        className="absolute inset-0 border-4 border-[#0073ff] rounded-xl"
         style={{
           WebkitMaskImage: maskImage,
           maskImage,
@@ -47,14 +54,10 @@ export const Feature = ({
         ref={border}
       ></motion.div>
       <div className="inline-flex justify-center items-center">
-        <Image
-          src={Icon}
-          alt={`${title} icon`}
-          className="h-12 w-12"
-        />
+        <Image src={Icon} alt={`${title} icon`} className="h-12 w-12" />
       </div>
-      <h3 className="pt-6 font-bold">{title}</h3>
-      <p className="mt-2 text-white/70">{description}</p>
+      <h3 className={`${outfit.className} pt-6 font-bold tracking-widest`}>{title}</h3>
+      <p className={`${outfit.className} mt-2 text-white/70`}>{description}</p>
     </div>
   );
 };
