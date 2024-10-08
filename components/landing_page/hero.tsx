@@ -1,16 +1,12 @@
-import { Outfit, Fira_Sans } from "next/font/google";
+import { Outfit} from "next/font/google";
 import Link from "next/link";
 import styles from "./hero.module.css"
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400","500"],
 });
 
-const fira_sans = Fira_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 export const Hero = () => {
   return (
@@ -32,10 +28,8 @@ export const Hero = () => {
               <Link
                 href="/professors/0"
                 className={`
-              ${fira_sans.className}
+              ${outfit.className}
               text-md text-white
-              transition duration-300
-              
               font-[500]
               overflow-hidden
               group

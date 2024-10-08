@@ -35,7 +35,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <div className="bg-black text-white py-[72px] mt-20 sm:py-24">
+    <div className="bg-black text-white py-[100px] sm:py-30">
       <div className="container">
         <h2 className="custom-accent-gradient-text text-center font-bold text-5xl sm:6xl tracking-tighter">
           Everything you need

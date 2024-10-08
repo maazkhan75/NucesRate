@@ -91,7 +91,7 @@ const AccordianItem = ({
               marginTop: 0,
             }}
           >
-            <span className="text-md font-[200]">
+            <span className="text-md font-[200] leading-normal text-base">
               {answer}
             </span>
           </motion.div>
