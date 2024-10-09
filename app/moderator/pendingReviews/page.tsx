@@ -1,4 +1,3 @@
-import Navbar from '@/components/moderator/navbar';
 import PendingReviews from '@/components/moderator/pendingReviews';
 import { createClient } from '@/utils/supabase/client';
 
@@ -52,7 +51,6 @@ const  PendingReviewsList  = async() => {
 
   return (
     <>
-      <Navbar />
       <PendingReviews reviews={reviewsWithStudents} />
     </>
   );

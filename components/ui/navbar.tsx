@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import logoImage from "../../public/assets/imgs/logo.png";
-import logoArt from "../../public/assets/imgs/logoArt.png";
+import logoImage from "@/public/assets/imgs/Logo.png";
 import { BiMenu, BiX } from "react-icons/bi";
 import Link from "next/link";
 import { useRouter } from "next/navigation"; // For Next.js 13 App Router
