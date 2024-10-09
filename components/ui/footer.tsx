@@ -1,6 +1,7 @@
 "use client";
 import GithubIcon from "../../public/assets/icons/github.png";
 import Image from "next/image";
+import Link from "next/link";
 import "../../app/globals.css";
 import { Outfit } from "next/font/google";
 
@@ -19,17 +20,17 @@ export const Footer = () => {
           <div className="text-center">© NucesHub, Inc.</div>
           <ul className="flex justify-center items-center gap-5">
             <li className="hidden sm:block">
-              <a href="privacyPolicy" className="redirection-link">
-                Privacy Policy
-              </a>
+              <Link href={"/privacyPolicy"}>
+                <h2 className="redirection-link">Privacy Policy</h2>
+              </Link>
             </li>
             <li className="hidden sm:block">
               <p>|</p>
             </li>
             <li className="hidden sm:block">
-              <a href="termsOfService" className="redirection-link">
-                Terms of Service
-              </a>
+              <Link href={"/termsOfService"}>
+                <h2 className="redirection-link">Terms of Service</h2>
+              </Link>
             </li>
             <li>
               <a href="https://github.com/maazkhan75/NucesHub">

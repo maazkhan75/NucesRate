@@ -157,18 +157,3 @@
 } */
 
 
-.navbarLink{
-    color:rgb(209, 209, 209);
-    border:2px solid rgb(44, 44, 44);
-    font-size:0.7em;
-    border-radius: 20px;
-    padding:9px 10px;
-}
-
-
-.navbarLink:hover{
-  
-    border:2px solid rgb(103, 103, 103);
-    cursor: pointer;
-}
-

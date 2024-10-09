@@ -118,7 +118,7 @@ const {scrollYProgress}= useScroll({
 // }, []);
 
 // As our srollYProgress values go from 0,1 we want our rotateX values to go from 15 to 0
-const rotateX=useTransform(scrollYProgress,[0, 1], [40, 0])
+const rotateX=useTransform(scrollYProgress,[0, 1], [80, 0])
 
 const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
 

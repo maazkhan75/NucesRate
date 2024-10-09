@@ -1,8 +1,3 @@
-"use client"; 
-
-
-
-// import HeaderAuth from "@/components/header-auth";
 import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -10,9 +5,10 @@ import Image from "next/image";
 import logoImage from "../../public/assets/imgs/logo.png";
 import "../../app/globals.css";
 import { googleAuthSignIn } from "@/app/actions";
-
+import HeaderAuth from "@/components/header-auth";
 import { EnvVarWarning } from "../env-var-warning";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import menu from '@/public/assets/icons/menu.png'
 
 export function NavbarApp() {
   return (
@@ -27,34 +23,28 @@ export function NavbarApp() {
         </Link>
 
         {/* for bigger screens */}
-        <div className="hidden md:flex gap-4 items-center">
-          <Link href={"/privacyPolicy"}>
-            <h2 className="navbarLink">Privacy Policy</h2>
+        <div className="hidden md:flex gap-4 items-center text-white/80">
+          {/* <Link href={"/privacyPolicy"}>
+            <h3 className="redirection-link">Privacy Policy</h3>
           </Link>
-
           <Link href={"/termsOfService"}>
-            <h2 className="navbarLink">Terms of Service</h2>
-          </Link>
+            <h3 className="redirection-link">Terms of Service</h3>
+          </Link> */}
 
-          <button
-            onClick={() => googleAuthSignIn("google")}
-            className="navbarLink"
-          >
-            Log In
-          </button>
-
-          {/* {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />} */}
+          {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
         </div>
 
         {/* for smaller screens */}
         <Sheet>
           {/* button for opening navbar in smaller screens */}
           <SheetTrigger asChild>
-            <div className="md:hidden">
-              <Button size="icon">
-                <span className="h-6 w-6">
-                  <MenuIcon />
-                </span>
+            <div className="md:hidden justify-center items-center ">
+              <Button className="bg-transparent mb-0 pb-0">
+                  <Image
+                    src={menu}
+                    alt="NucesHub logo"
+                    className="h-[30px] w-[30px]"
+                  />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </div>
@@ -63,21 +53,14 @@ export function NavbarApp() {
           <SheetContent side="right">
             <div className="grid w-[200px] p-4 gap-10">
               <Link href={"/privacyPolicy"}>
-                <h2 className="navbarLink">Privacy Policy</h2>
+                <h3 className="redirection-link">Privacy Policy</h3>
               </Link>
 
               <Link href={"/termsOfService"}>
-                <h2 className="navbarLink">Terms of Service</h2>
+                <h3 className="redirection-link">Terms of Service</h3>
               </Link>
 
-              <button
-                onClick={() => googleAuthSignIn("google")}
-                className="navbarLink"
-              >
-                Log In
-              </button>
-
-              {/* {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />} */}
+              {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
             </div>
           </SheetContent>
         </Sheet>
@@ -86,23 +69,3 @@ export function NavbarApp() {
   );
 }
 
-function MenuIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  );
-
-}

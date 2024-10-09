@@ -3,8 +3,9 @@ import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import Link from "next/link";
 import { googleAuthSignIn } from "@/app/actions";
+import {SigninBtn} from "./ui/googleSignIn-btn"
+import Link from "next/link";
 import Image from "next/image";
  
 export default async function AuthButton() {
@@ -37,8 +38,6 @@ export default async function AuthButton() {
       </DropdownMenu>
     </div>
   ) : (
-    <Button onClick={() => googleAuthSignIn("google")} variant="outline">
-      Sign in with Google
-    </Button>
+      <SigninBtn/>
   );
 }
