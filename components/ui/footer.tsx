@@ -2,26 +2,33 @@
 import GithubIcon from "../../public/assets/icons/github.png";
 import Image from "next/image";
 import "../../app/globals.css";
-import Link from "next/link";
+import { Outfit } from "next/font/google";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
 export const Footer = () => {
   return (
     <footer className="py-5 bg-black text-white/60 border-t border-white/20">
       <div className="container">
-        <div className="flex flex-row gap-4 justify-between">
+        <div
+          className={`${outfit.className} flex flex-row gap-4 justify-between`}
+        >
           <div className="text-center">© NucesHub, Inc.</div>
           <ul className="flex justify-center items-center gap-5">
             <li className="hidden sm:block">
               <a href="privacyPolicy" className="redirection-link">
-                Privary Policy
+                Privacy Policy
               </a>
             </li>
             <li className="hidden sm:block">
               <p>|</p>
             </li>
             <li className="hidden sm:block">
-              <a href="terms&conditions" className="redirection-link">
-                Terms & Conditions
+              <a href="termsOfService" className="redirection-link">
+                Terms of Service
               </a>
             </li>
             <li>
@@ -29,10 +36,10 @@ export const Footer = () => {
                 <Image
                   src={GithubIcon}
                   alt="GitHub Icon"
-                  width={60}
-                  height={60}
+                  width={50}
+                  height={50}
                   style={{ marginTop: "-2px" }}
-                  className="github-icon"
+                  className="custom-icon"
                 />
               </a>
             </li>

@@ -1,7 +1,10 @@
 "use client";
-import { Plus } from "lucide-react";
+import Image from "next/image";
+import CloseIcon from "../../public/assets/icons/close.png";
+import "../../app/globals.css";
 
-export default function TermsConditions() {
+
+export default function termsOfService() {
   const sections = [
     "User Eligibility",
     "Review Guidelines",
@@ -10,6 +13,10 @@ export default function TermsConditions() {
     "Changes to Terms",
     "Contact Us",
   ];
+
+  const goBack = () => {
+    window.history.back();
+  };
 
   return (
     <div className="min-h-screen bg-black text-gray-200 relative overflow-hidden flex">
@@ -27,10 +34,25 @@ export default function TermsConditions() {
         />
       </div>
 
+      {/* Close Button */}
+      <button
+        onClick={goBack}
+        className="absolute top-6 right-6"
+        aria-label="Close Terms of Service"
+      >
+        <Image
+          src={CloseIcon}
+          alt="close icon"
+          width={40}
+          height={40}
+          className="custom-icon"
+        />
+      </button>
+
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16 sm:px-6 lg:px-8 relative w-3/4 z-10">
+      <div className="max-w-4xl mx-auto px-2 py-16 sm:px-6 lg:px-8 relative w-3/4 z-10">
         <h1 className="text-5xl font-bold text-center mb-6 tracking-wide bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent neon-title">
-          Terms & Conditions
+          Terms of Service
         </h1>
         <p className="text-gray-400 text-center mb-12 text-lg ">
           Last Updated September 30, 2024
@@ -58,7 +80,7 @@ export default function TermsConditions() {
           <Section title="Content Moderation">
             <p id="Content Moderation">
               All reviews submitted on NUCESHub will be moderated by the
-              NUCESHub Moderator Team before being published. Any review that
+              NucesHub Moderator Team before being published. Any review that
               violates these terms will be rejected, and users may face
               restrictions on future submissions.
             </p>
@@ -74,7 +96,7 @@ export default function TermsConditions() {
 
           <Section title="Changes to Terms">
             <p id="Changes to Terms">
-              NUCESHub reserves the right to modify these Terms & Conditions at
+              NucesHub reserves the right to modify these Terms & Conditions at
               any time. Continued use of the platform after any changes
               constitutes your acceptance of the new terms.
             </p>

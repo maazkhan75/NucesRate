@@ -1,6 +1,6 @@
 'use client';
 
-import styles from "./navbar.module.css";
+import styles from "./search-bar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { FormEvent, FormEventHandler, useState } from "react";
@@ -20,7 +20,6 @@ export default function SearchBar() {
         input.value = '';
     }
     
-
     return (
         <form onSubmit={submitHandler} className={`flex items-around gap-2 ${styles.input}`}>
             <Input name="search" className={styles.input} type="text" placeholder="Search Professors" />

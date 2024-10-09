@@ -1,48 +1,86 @@
+"use client"; 
+
+
+
+// import HeaderAuth from "@/components/header-auth";
 import Link from "next/link";
-import HeaderAuth from "@/components/header-auth";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import SearchBar from "./navbar_search_bar";
+import Image from "next/image";
+import logoImage from "../../public/assets/imgs/logo.png";
+import "../../app/globals.css";
+import { googleAuthSignIn } from "@/app/actions";
+
 import { EnvVarWarning } from "../env-var-warning";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 
 export function NavbarApp() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between p-5  bg-black text-foreground">
+    <div className="flex flex-col md:flex-row items-center justify-between p-5 bg-black text-foreground">
       <div className="flex items-center justify-between w-full">
-        <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <span className="text-lg font-semibold">NucesHub</span>
+        <Link href={"/"}>
+          <Image
+            src={logoImage}
+            alt="NucesHub logo"
+            className="h-[6rem] w-auto"
+          />
         </Link>
-          <div className="hidden md:flex gap-4 items-center">
-            <SearchBar />
-            <Link href={"/professors/0"}>
-              <h2 style={{ textDecoration: "underline", cursor: "pointer" }}>Professors</h2>
-            </Link>
-            {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
-          </div>
+
+        {/* for bigger screens */}
+        <div className="hidden md:flex gap-4 items-center">
+          <Link href={"/privacyPolicy"}>
+            <h2 className="navbarLink">Privacy Policy</h2>
+          </Link>
+
+          <Link href={"/termsOfService"}>
+            <h2 className="navbarLink">Terms of Service</h2>
+          </Link>
+
+          <button
+            onClick={() => googleAuthSignIn("google")}
+            className="navbarLink"
+          >
+            Log In
+          </button>
+
+          {/* {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />} */}
+        </div>
+
+        {/* for smaller screens */}
         <Sheet>
+          {/* button for opening navbar in smaller screens */}
           <SheetTrigger asChild>
             <div className="md:hidden">
               <Button size="icon">
-                <span className="h-6 w-6 ">
+                <span className="h-6 w-6">
                   <MenuIcon />
                 </span>
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </div>
           </SheetTrigger>
-          <SheetContent side="left">
+
+          <SheetContent side="right">
             <div className="grid w-[200px] p-4 gap-10">
-              <Link href={"/professors/0"}>
-                <h2 style={{ textDecoration: "underline", cursor: "pointer" }}>Professors</h2>
+              <Link href={"/privacyPolicy"}>
+                <h2 className="navbarLink">Privacy Policy</h2>
               </Link>
-              {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+
+              <Link href={"/termsOfService"}>
+                <h2 className="navbarLink">Terms of Service</h2>
+              </Link>
+
+              <button
+                onClick={() => googleAuthSignIn("google")}
+                className="navbarLink"
+              >
+                Log In
+              </button>
+
+              {/* {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />} */}
             </div>
           </SheetContent>
         </Sheet>
-      </div>
-      <div className="w-full mt-2 md:hidden">
-        <SearchBar />
       </div>
     </div>
   );
@@ -66,4 +104,5 @@ function MenuIcon() {
       <line x1="4" x2="20" y1="18" y2="18" />
     </svg>
   );
+
 }

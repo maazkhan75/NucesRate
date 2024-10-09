@@ -1,6 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
+import Image from "next/image";
+import CloseIcon from "../../public/assets/icons/close.png";
+import "../../app/globals.css";
+
 
 export default function Component() {
   const sections = [
@@ -10,6 +12,10 @@ export default function Component() {
     "Security",
     "Contact Us",
   ];
+
+   const goBack = () => {
+     window.history.back();
+   };
 
   return (
     <div className="min-h-screen bg-black text-gray-200 relative overflow-hidden flex">
@@ -26,6 +32,21 @@ export default function Component() {
           }}
         />
       </div>
+
+      {/* Close Button */}
+      <button
+        onClick={goBack}
+        className="absolute top-6 right-6"
+        aria-label="Close Terms of Service"
+      >
+        <Image
+          src={CloseIcon}
+          alt="close icon"
+          width={40}
+          height={40}
+          className="custom-icon"
+        />
+      </button>
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-16 sm:px-6 lg:px-8 relative w-3/4 z-10">

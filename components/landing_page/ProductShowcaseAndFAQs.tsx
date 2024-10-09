@@ -129,7 +129,7 @@ const changeOpacity = useTransform(scrollYProgress,[0,1],[.5, 1])
           User-friendly interface
         </h2>
         <div className="max-w-xl mx-auto">
-          <p className="text-xl text-center text-white/70 mt-5 ">
+          <p className={`${outfit.className} text-xl text-center text-white/70 mt-5 `}>
             Experience an effortlessly navigable design that allows students to
             share their feedback and access reviews with ease.
           </p>

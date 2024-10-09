@@ -1,4 +1,4 @@
-import {Navbar} from "@/components/ui/navbar"
+import {NavbarApp} from "@/components/ui/navbar-app"
 import { Hero } from "@/components/landing_page/hero";
 import { ProductShowcaseAndFAQs } from "@/components/landing_page/ProductShowcaseAndFAQs";
 import { Features } from "@/components/landing_page/Features";
@@ -22,7 +22,7 @@ export default async function Index() {
 
   return (
     <div>
-      <Navbar />
+      <NavbarApp />
       <Hero />
       <Features />
       <ProductShowcaseAndFAQs />

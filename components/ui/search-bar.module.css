@@ -1,0 +1,24 @@
+.input > input{
+    border: 2px solid rgb(67, 67, 67);
+    border-radius: 40px;
+    padding: 4px 10px;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+}
+.input > input:focus {
+    border: 2px solid rgb(67, 67, 67);
+    border: none;
+    
+    width:50%;
+}
+
+.search_icon {
+    position: relative;
+    left: -40px;
+    top: 0;
+	cursor: pointer;
+}
+
+
+

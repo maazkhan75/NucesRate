@@ -117,12 +117,12 @@
 }
 
 
-.github-icon {
+.custom-icon {
   filter: brightness(1);
   transition: filter 0.2s ease-in-out;
 }
 
-.github-icon:hover {
+.custom-icon:hover {
   filter: brightness(2);
 }
 
@@ -149,10 +149,26 @@
 }
 
 
-.navbar-link:hover, .navbar-link:active{
+/* .navbar-link:hover, .navbar-link:active{
   background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+} */
+
+
+.navbarLink{
+    color:rgb(209, 209, 209);
+    border:2px solid rgb(44, 44, 44);
+    font-size:0.7em;
+    border-radius: 20px;
+    padding:9px 10px;
+}
+
+
+.navbarLink:hover{
+  
+    border:2px solid rgb(103, 103, 103);
+    cursor: pointer;
 }
 
