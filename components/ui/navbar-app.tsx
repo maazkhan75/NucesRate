@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import LogoImage from "../../public/assets/imgs/Logo.png"
+import LogoImgPath from "../../public/assets/imgs/logo.png";
 import "../../app/globals.css";
 import HeaderAuth from "@/components/header-auth";
 import { EnvVarWarning } from "../env-var-warning";
@@ -15,7 +15,7 @@ export function NavbarApp() {
       <div className="flex items-center justify-between w-full">
         <Link href={"/"}>
           <Image
-            src={LogoImage}
+            src={LogoImgPath}
             alt="NucesRate logo"
             className="h-[6rem] w-auto"
           />
@@ -33,14 +33,14 @@ export function NavbarApp() {
             <div className="md:hidden justify-center items-center ">
               <Button className="bg-transparent mt-2 px-3 py-2 w-16 h-16 rounded-full focus:outline-none focus:ring-0 active:bg-transparent hover:bg-transparent">
                 <Menu />
-                <span className="sr-only">Toggle navigation menu</span> {/* for screen readers */}
+                <span className="sr-only">Toggle navigation menu</span>{" "}
+                {/* for screen readers */}
               </Button>
             </div>
           </SheetTrigger>
 
           <SheetContent side="right">
             <div className="grid w-[200px] mt-20 gap-10">
-
               <Link href={"/privacyPolicy"}>
                 <h3 className="redirection-link">Privacy Policy</h3>
               </Link>
@@ -48,7 +48,6 @@ export function NavbarApp() {
                 <h3 className="redirection-link">Terms of Service</h3>
               </Link>
               {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
-
             </div>
           </SheetContent>
         </Sheet>
