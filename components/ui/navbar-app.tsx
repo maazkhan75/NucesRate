@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import logoImage from "@/public/assets/imgs/Logo.png";
+import LogoImage from "@/public/assets/imgs/Logo.png"
 import "../../app/globals.css";
 import HeaderAuth from "@/components/header-auth";
 import { EnvVarWarning } from "../env-var-warning";
@@ -15,7 +15,7 @@ export function NavbarApp() {
       <div className="flex items-center justify-between w-full">
         <Link href={"/"}>
           <Image
-            src={logoImage}
+            src={LogoImage}
             alt="NucesRate logo"
             className="h-[6rem] w-auto"
           />
