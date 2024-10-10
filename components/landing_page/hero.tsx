@@ -18,7 +18,7 @@ export const Hero = () => {
           </h1>
         </div>
         <p className={`${outfit.className} text-white/70 text-lg mb-1`}>
-          NucesHub helps you choose top professors with anonymous reviews for
+          NucesRate helps you choose top professors with anonymous reviews for
           academic success.
         </p>
 

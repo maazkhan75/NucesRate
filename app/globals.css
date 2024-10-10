@@ -135,8 +135,6 @@
   color:#fff;
 }
 
-
-
 .custom-accent-gradient-text {
   background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
   color: transparent;
@@ -147,12 +145,3 @@
 *::selection{
   background-color: transparent;
 }
-
-
-/* .navbar-link:hover, .navbar-link:active{
-  background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-} */
-

@@ -1,10 +1,10 @@
-# 🏫 **NucesHub**
+# 🏫 **NucesRate**
 
 
 ## 📜 **Project Overview:**
-The `NucesHub` platform is designed to assist FAST University students in reviewing professors and sharing feedback, helping other students choose their sections and offering teachers valuable suggestions for improvement, all while preserving student anonymity.
+The `NucesRate` platform is designed to assist FAST University students in reviewing professors and sharing feedback, helping other students choose their sections and offering teachers valuable suggestions for improvement, all while preserving student anonymity.
 By fostering transparency and collaboration, the platform aims to enhance both learning and teaching experiences at institutions.
-Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but the project can be adapted and used by any educational institution seeking a similar platform for managing professor reviews.
+Although `NucesRate` is specifically designed for FAST-NUCES (all campuses), but the project can be adapted and used by any educational institution seeking a similar platform for managing professor reviews.
 
 ---
 
@@ -24,7 +24,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
    - 🔍 Reviews can be filtered based on various factors such as star ratings, most upvotes/downvotes, specific courses, and specific professors.
 
 4. **Request to Add Professors and Courses:**
-   - 📋 Students can request the NucesHub team to add professors who are not currently listed on the website by providing necessary details about the professor through a simple form to facilitate their inclusion in the database.
+   - 📋 Students can request the NucesRate team to add professors who are not currently listed on the website by providing necessary details about the professor through a simple form to facilitate their inclusion in the database.
    - 📋 Students can also request the addition of specific courses if they are not available on the platform by submitting course details using the provided form to help expand the available course list.
 
 ---
@@ -70,7 +70,7 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/maazkhan75/NucesHub.git
+   git clone https://github.com/maazkhan75/NucesRate.git
    ```
 2. Install dependencies:
    ```bash
@@ -86,5 +86,5 @@ Although `NucesHub` is specifically designed for FAST-NUCES (all campuses), but 
 ```
 ## 📬 Contact
 
-If you have any questions or feedback, feel free to reach out at `nuceshub@gmail.com`
+If you have any questions or feedback, feel free to reach out at `NucesRate@gmail.com`
    

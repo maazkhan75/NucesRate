@@ -75,7 +75,7 @@ export default function Component() {
             </p>
             <p>
               Your identity remains anonymous when submitting professor reviews.
-              NucesHub ensures that the feedback is secure, providing a safe and
+              NucesRate ensures that the feedback is secure, providing a safe and
               anonymous platform for students.
             </p>
           </Section>
@@ -118,10 +118,10 @@ export default function Component() {
               contact us at:
               <br />
               <a
-                href="mailto:nuceshub@gmail.com"
+                href="mailto:NucesRate@gmail.com"
                 className="text-cyan-400 hover:text-cyan-300 transition-colors"
               >
-                nuceshub@gmail.com
+                NucesRate@gmail.com
               </a>
             </p>
           </Section>

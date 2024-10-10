@@ -79,8 +79,8 @@ export default function termsOfService() {
 
           <Section title="Content Moderation">
             <p id="Content Moderation">
-              All reviews submitted on NUCESHub will be moderated by the
-              NucesHub Moderator Team before being published. Any review that
+              All reviews submitted on NucesRate will be moderated by the
+              NucesRate Moderator Team before being published. Any review that
               violates these terms will be rejected, and users may face
               restrictions on future submissions.
             </p>
@@ -96,7 +96,7 @@ export default function termsOfService() {
 
           <Section title="Changes to Terms">
             <p id="Changes to Terms">
-              NucesHub reserves the right to modify these Terms & Conditions at
+              NucesRate reserves the right to modify these Terms & Conditions at
               any time. Continued use of the platform after any changes
               constitutes your acceptance of the new terms.
             </p>
@@ -108,10 +108,10 @@ export default function termsOfService() {
               contact us at:
               <br />
               <a
-                href="mailto:nuceshub@gmail.com"
+                href="mailto:NucesRate@gmail.com"
                 className="text-cyan-400 hover:text-cyan-300 transition-colors"
               >
-                nuceshub@gmail.com
+                NucesRate@gmail.com
               </a>
             </p>
           </Section>

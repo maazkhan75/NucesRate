@@ -16,7 +16,7 @@ export function NavbarApp() {
         <Link href={"/"}>
           <Image
             src={logoImage}
-            alt="NucesHub logo"
+            alt="NucesRate logo"
             className="h-[6rem] w-auto"
           />
         </Link>

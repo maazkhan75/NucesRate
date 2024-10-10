@@ -17,7 +17,7 @@ export const Footer = () => {
         <div
           className={`${outfit.className} flex flex-row gap-4 justify-between`}
         >
-          <div className="text-center">© NucesHub, Inc.</div>
+          <div className="text-center">© NucesRate, Inc.</div>
           <ul className="flex justify-center items-center gap-5">
             <li className="hidden sm:block">
               <Link href={"/privacyPolicy"}>
@@ -33,7 +33,7 @@ export const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="https://github.com/maazkhan75/NucesHub">
+              <a href="https://github.com/maazkhan75/NucesRate">
                 <Image
                   src={GithubIcon}
                   alt="GitHub Icon"

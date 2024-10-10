@@ -28,7 +28,7 @@ const features = [
   {
     title: "Filters for Efficient Search",
     description:
-      "NucesHub offers advanced search filters for students to find professors by ratings, recent reviews, or specific campuses, streamlining access to relevant information.",
+      "NucesRate offers advanced search filters for students to find professors by ratings, recent reviews, or specific campuses, streamlining access to relevant information.",
     icon: FiltersIcon,
   },
 ];
