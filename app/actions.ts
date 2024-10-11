@@ -19,9 +19,9 @@ export async function googleAuthSignIn(provider: Provider) {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: 'https://nucesrate.vercel.app/0/professors'
+      redirectTo: "https://nucesrate.vercel.app/professors/0",
     },
-  })
+  });
 
   if (data.url) {
     return redirect(data.url)
