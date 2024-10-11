@@ -1,4 +1,4 @@
-import { NavbarApp } from "@/components/ui/navbar-app";
+import { Navbar } from "@/components/ui/navbar";
 import  SearchBar from "@/components/ui/search-bar"
 import Filters from "@/components/professor_page/filters";
 import ProfessorsCards from "@/components/professor_page/professors_cards";
@@ -28,7 +28,7 @@ export default async function Index({
 
   return (
     <div className="bg-black">
-      <NavbarApp/>
+      <Navbar/>
       <SearchBar/>
       <Filters url={url} />
       <ProfessorsCards page_number={page_number} url={url} />

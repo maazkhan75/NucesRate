@@ -1,10 +1,19 @@
 import { signOutAction } from "@/app/actions";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import {SigninBtn} from "./ui/googleSignIn-btn"
-import Link from "next/link";
+import { Outfit } from "next/font/google";
+import profileIconPath from "../public/assets/icons/profile.png"
+import Image from "next/image";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
  
 export default async function AuthButton() {
   const {
@@ -13,20 +22,21 @@ export default async function AuthButton() {
 
   return user ? (
     <div className="flex items-center gap-4">
-      Hey, {user.email?.slice(0, user.email?.indexOf("@"))}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
-            <Avatar>
-              <AvatarImage src={user?.user_metadata.avatar_url} sizes="100" />
-              <AvatarFallback>
-                {user.email?.slice(0, user.email?.indexOf("@"))}
-              </AvatarFallback>
-            </Avatar>
+          <Button
+            className={`${outfit.className} mb-2 text-sm rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
+          >
+            My Profile
+            <Image
+              src={profileIconPath}
+              alt="profile icon"
+              className="pl-2 h-[1rem] w-auto"
+            />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
           <form action={signOutAction}>
             <Button type="submit" variant={"outline"}>
               Sign out
@@ -36,6 +46,6 @@ export default async function AuthButton() {
       </DropdownMenu>
     </div>
   ) : (
-      <SigninBtn/>
+    <SigninBtn />
   );
 }

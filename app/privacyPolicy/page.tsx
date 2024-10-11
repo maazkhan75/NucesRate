@@ -121,7 +121,7 @@ export default function Component() {
                 href="mailto:NucesRate@gmail.com"
                 className="text-cyan-400 hover:text-cyan-300 transition-colors"
               >
-                NucesRate@gmail.com
+                nucesrate@gmail.com
               </a>
             </p>
           </Section>

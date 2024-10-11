@@ -9,7 +9,7 @@ import { EnvVarWarning } from "../env-var-warning";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import Menu from '@/public/assets/icons/menu.svg'
 
-export function NavbarApp() {
+export function Navbar() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between p-5 bg-black text-foreground">
       <div className="flex items-center justify-between w-full">
@@ -17,7 +17,7 @@ export function NavbarApp() {
           <Image
             src={LogoImgPath}
             alt="NucesRate logo"
-            className="h-[6rem] w-auto"
+            className="h-[7rem] w-auto pl-5"
           />
         </Link>
 
@@ -31,7 +31,7 @@ export function NavbarApp() {
           {/* button for opening navbar in smaller screens */}
           <SheetTrigger asChild>
             <div className="md:hidden justify-center items-center ">
-              <Button className="bg-transparent mt-2 px-3 py-2 w-16 h-16 rounded-full focus:outline-none focus:ring-0 active:bg-transparent hover:bg-transparent">
+              <Button className="bg-transparent mt-1 px-3 py-2 w-16 h-16 rounded-full focus:outline-none focus:ring-0 active:bg-transparent hover:bg-transparent">
                 <Menu />
                 <span className="sr-only">Toggle navigation menu</span>{" "}
                 {/* for screen readers */}
