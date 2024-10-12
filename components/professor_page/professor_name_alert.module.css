@@ -1,0 +1,10 @@
+.cross {
+    scale: 2;
+    cursor: pointer;
+}
+
+.alert_box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem;
+}

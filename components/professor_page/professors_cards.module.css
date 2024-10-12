@@ -1,0 +1,52 @@
+.cover {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+  
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+}
+
+  
+.reviews_rating {
+    border-radius: 2rem;
+}
+  
+.reviews_buttons {  
+    display: flex;
+    justify-content: space-around;
+}
+
+  
+.prof_image {
+    border: 0.5px solid black;
+    border-radius: 25%;
+}
+
+.image_container {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
+  
+.partition {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 576px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

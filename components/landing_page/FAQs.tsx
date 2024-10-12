@@ -1,0 +1,93 @@
+"use client";
+import React from "react"
+import { motion, AnimatePresence } from "framer-motion";
+import { MinusIcon, PlusIcon } from "lucide-react";
+
+const items = [
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept all major credit cards, PayPal, and various other payment methods depending on your location. Please contact our support team for more information on accepted payment methods in your region.",
+  },
+  {
+    question: "How does the pricing work for teams?",
+    answer:
+      "Our pricing is per user, per month. This means you only pay for the number of team members you have on your account. Discounts are available for larger teams and annual subscriptions.",
+  },
+  {
+    question: "Can I change my plan later?",
+    answer:
+      "Yes, you can upgrade or downgrade your plan at any time. Changes to your plan will be prorated and reflected in your next billing cycle.",
+  },
+  {
+    question: "Is my data secure?",
+    answer:
+      "Security is our top priority. We use state-of-the-art encryption and comply with the best industry practices to ensure that your data is stored securely and accessed only by authorized users.",
+  },
+];
+
+const AccordianItem=({
+  question,
+  answer,
+}:{
+  question:string;
+  answer:string;
+}) => {
+  const [isOpen,setIsOpen] = React.useState(false);
+  return (
+    <div
+      className="py-7 border-b border-white/30"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex items-center">
+        <span className="flex-1 text-lg font-bold">{question}</span>
+        {isOpen ? <MinusIcon /> : <PlusIcon />}
+      </div>
+      
+      {/* below clsx for having multiple classes with conditions and first one is
+      default(for learning...)
+      className={clsx("mt-4", { hidden: !isOpen, "": isOpen === true })} */}
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+            animate={{
+              opacity: 1,
+              height: "auto",
+              marginTop: "16px",
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export const FAQs = () => {
+  return (
+    <div className="bg-black text-white bg-gradient-to-b from-[#027cf5] to-black py-[72-px] sm:py-24">
+      <div className="container">
+        <h2 className="text-center font-bold text-5xl sm:6xl sm:max-w-[648px] mx-auto tracking-tighter ">
+          Frequently Asked Questions
+        </h2>
+        <div className="mt-12 max-w-[648px] mx-auto">
+          {items.map(({ question, answer }) => (
+            <AccordianItem question={question} answer={answer} key={question} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
