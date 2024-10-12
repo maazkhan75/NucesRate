@@ -15,7 +15,7 @@ export default function Filters({url} : {url: ProfessorsPageUrl}) {
     function applyFilter() {
         const queryParams = new URLSearchParams();
         if (url.prof_name) queryParams.append('prof', url.prof_name);
-        if (tagValue) queryParams.append('course', tagValue);
+        if (tagValue) queryParams.append('tag', tagValue);
         if (deptValue) queryParams.append('dept', deptValue);
         router.push(`/professors/0/?${queryParams.toString()}`);
     }
