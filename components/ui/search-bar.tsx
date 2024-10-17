@@ -5,8 +5,10 @@ import { FaSearch } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { FormEvent, FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ProfessorsPageUrl } from "../types/professors_url_type";
+import Filters from "../professor_page/filters";
 
-export default function SearchBar() {
+export default function SearchBar({url} : {url: ProfessorsPageUrl}) {
     const router = useRouter();
 
     async function submitHandler(e: FormEvent<HTMLFormElement>) {
@@ -23,7 +25,8 @@ export default function SearchBar() {
     return (
         <form onSubmit={submitHandler} className={`flex justify-center items-around gap-2 ${styles.input}`}>
             <Input name="search" className={styles.input} type="text" placeholder="Search Professors" />
-            <button type="submit" className={styles.search_icon}><FaSearch /></button>
+            <span className={styles.search_icon}><Filters url={url} /></span>
+            <button type="submit" className="hidden" ><FaSearch /></button>
         </form>
     );
 }

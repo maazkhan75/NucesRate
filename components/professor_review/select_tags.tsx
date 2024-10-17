@@ -21,10 +21,8 @@ export default function TagSelector({setShowTagsPage, selectedTags, toggleTag, h
   const supabase = createClient();
   const [tags, setTags] = React.useState<{tag_name: string}[] | null>(null);
 
-  async function getTagsByProfId(deptName: number | null) {
-    const { data, error } = await supabase.rpc("get_tags_by_prof_id", {
-      input_prof_id: prof_id,
-    });
+  async function getTagsByProfId() {
+    const { data, error } = await supabase.rpc("get_tags", {});
 
     if (error) {
       console.error("Error fetching tags:", error.message);
@@ -37,7 +35,7 @@ export default function TagSelector({setShowTagsPage, selectedTags, toggleTag, h
   React.useEffect(() => {
     async function fetchTags() {
       setTags(null)
-      const tagsData = (await getTagsByProfId(prof_id)) as {tag_name: string}[];
+      const tagsData = (await getTagsByProfId()) as {tag_name: string}[];
       setTags(tagsData);
     }
 

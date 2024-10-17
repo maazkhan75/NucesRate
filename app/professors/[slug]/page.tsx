@@ -29,8 +29,7 @@ export default async function Index({
   return (
     <div className="bg-black">
       <Navbar />
-      <SearchBar/>
-      <Filters url={url} />
+      <SearchBar url={url}/>
       <ProfessorsCards page_number={page_number} url={url} />
       <Footer />
     </div>

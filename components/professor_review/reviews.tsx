@@ -10,6 +10,8 @@ export type ReviewType = {
     upvotes: number,
     downvotes: number,
     user_vote: 'downvote' | 'upvote' | null
+    review_status: 'approved' | 'pending'
+    is_user_review: boolean
 }
 
 

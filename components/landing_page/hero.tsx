@@ -23,9 +23,7 @@ export const Hero = () => {
         </p>
 
         <div className="flex items-center justify-center pt-5">
-          <div className="btn-wrapper w-[140px] h-[40px]">
-            <div className="btn-content flex justify-center items-center">
-              <Link
+        <Link
                 href="/professors/0"
                 className={`
               ${outfit.className}
@@ -35,10 +33,12 @@ export const Hero = () => {
               group
             `}
               >
+          <div className="btn-wrapper w-[140px] h-[40px]">
+            <div className="btn-content flex justify-center items-center">
                 Get Started
-              </Link>
             </div>
           </div>
+          </Link>
         </div>
       </div>
     </div>

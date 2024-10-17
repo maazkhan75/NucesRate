@@ -23,6 +23,7 @@ export function Navbar() {
 
         {/* for bigger screens */}
         <div className="hidden md:flex gap-4 items-center text-white/80">
+          <Link className="redirection-link" href={'/professors/0'}>Professors</Link>
           {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
         </div>
 
@@ -41,6 +42,7 @@ export function Navbar() {
 
           <SheetContent side="right">
             <div className="grid w-[200px] mt-20 gap-10">
+              <Link className="redirection-link" href={'/professors/0'}>Professors</Link>
               <Link href={"/privacyPolicy"}>
                 <h3 className="redirection-link">Privacy Policy</h3>
               </Link>

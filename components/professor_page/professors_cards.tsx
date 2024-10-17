@@ -22,6 +22,7 @@ import {
     TooltipTrigger,
   } from "@/components/ui/tooltip"
 import { formatTagName } from "@/app/helping_functions";
+import DeptTagAlert from "./dept_tag_alert";
   
 
 type ProfessorsArray = {
@@ -52,6 +53,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
     return (
         <>
         {url.prof_name && <ProfNameAlert url={url} />}
+        {url.department && <DeptTagAlert url={url} />}
         <div className={styles.cover}>
 
             <div className={styles.cards}>
@@ -87,8 +89,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                                 </div>
                             </CardContent>
                             <CardFooter>
-                                <span>Courses:</span>
-                                {professor.tag_names[0] !== null ? professor.tag_names.map((tag) => {
+                                {professor.tag_names && professor.tag_names.map((tag) => {
                                     return (
                                     tag && <Badge key={tag} className="ml-2 hover:pointer cursor-pointer">
                                                 <TooltipProvider>
@@ -101,7 +102,7 @@ export default async function ProfessorsCards({page_number, url} : {page_number:
                                                 </TooltipProvider>
                                     </Badge>
                                     );
-                                }) : <Badge className="ml-2 hover:pointer cursor-pointer">No Tag!</Badge>}
+                                })}
                                 </CardFooter>
 
                         </Card>

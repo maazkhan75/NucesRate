@@ -50,7 +50,7 @@ export function AddReviewButton({ prof_id, p_rating = 0, p_comment = "", p_strin
   }, [p_rating, p_comment]);
 
   const handleSubmit = async () => {
-    if (!rating || !comment) {
+    if (!rating) {
       toast.error("Please fill rating and comment!");
       return;
     }
@@ -88,7 +88,7 @@ export function AddReviewButton({ prof_id, p_rating = 0, p_comment = "", p_strin
           <>
             <DrawerHeader>
               <DrawerTitle>{ p_comment === "" ? "Add Review" : "Edit Review"}</DrawerTitle>
-              <DrawerDescription>Share your thoughts about the course</DrawerDescription>
+              <DrawerDescription>Share your thoughts about the professor</DrawerDescription>
             </DrawerHeader>
             <div className="p-4 space-y-4">
               <div className="flex justify-center">
@@ -105,7 +105,7 @@ export function AddReviewButton({ prof_id, p_rating = 0, p_comment = "", p_strin
               <Textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Write your review here..."
+                placeholder="Write your review here (Optional)..."
                 className="min-h-[100px]"
               />
             </div>
