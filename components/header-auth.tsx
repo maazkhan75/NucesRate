@@ -38,13 +38,16 @@ export default async function Auth() {
       <Link href={"/userReviews"}>
         <h3 className="redirection-link">My Reviews</h3>
       </Link>
+      <Link href={"/professors/0"}>
+        <h3 className="redirection-link">Professors</h3>
+      </Link>
       <Link href={"/privacyPolicy"}>
         <h3 className="redirection-link">Privacy Policy</h3>
       </Link>
       <Link href={"/termsOfService"}>
         <h2 className="redirection-link">Terms of Service</h2>
       </Link>
-      <Link href={"/requestProfessorForm"}>
+      <Link href={"/requestProfessor"}>
         <h3 className="redirection-link">Request to add Professor</h3>
       </Link>
     </div>
@@ -63,7 +66,7 @@ export default async function Auth() {
       <Link href={"/termsOfService"}>
         <h2 className="redirection-link">Terms of Service</h2>
       </Link>
-      <Link href={"/requestProfessorForm"}>
+      <Link href={"/requestProfessor"}>
         <h3 className="redirection-link">Request to add Professor</h3>
       </Link>
     </div>
