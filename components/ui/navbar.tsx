@@ -17,21 +17,14 @@ export function Navbar() {
           <Image
             src={LogoImgPath}
             alt="NucesRate logo"
-            className="h-[7rem] w-auto pl-5"
+            className="h-[6rem] w-auto pl-5"
           />
         </Link>
 
-        {/* for bigger screens */}
-        <div className="hidden md:flex gap-4 items-center text-white/80">
-          
-          {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
-        </div>
-
-        {/* for smaller screens */}
         <Sheet>
-          {/* button for opening navbar in smaller screens */}
+          {/* button for opening navbar */}
           <SheetTrigger asChild>
-            <div className="md:hidden justify-center items-center ">
+            <div className="justify-center items-center ">
               <Button className="bg-transparent mt-1 px-3 py-2 w-16 h-16 rounded-full focus:outline-none focus:ring-0 active:bg-transparent hover:bg-transparent">
                 <Menu />
                 <span className="sr-only">Toggle navigation menu</span>{" "}
@@ -41,13 +34,7 @@ export function Navbar() {
           </SheetTrigger>
 
           <SheetContent side="right">
-            <div className="grid w-[200px] mt-20 gap-10">
-              <Link href={"/privacyPolicy"}>
-                <h3 className="redirection-link">Privacy Policy</h3>
-              </Link>
-              <Link href={"/termsOfService"}>
-                <h3 className="redirection-link">Terms of Service</h3>
-              </Link>
+            <div className="grid w-50 mt-20">
               {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
             </div>
           </SheetContent>

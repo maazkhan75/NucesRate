@@ -2,61 +2,70 @@ import Link from "next/link";
 import { signOutAction } from "@/app/actions";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { SigninBtn } from "./ui/googleSignIn-btn";
+import signoutIcon from "@/public/assets/icons/signout.png";
 import { Outfit } from "next/font/google";
-import profileIconPath from "../public/assets/icons/profile.png";
 import Image from "next/image";
+import { SigninBtn } from "./ui/googleSignIn-btn"; 
 
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-export default async function AuthButton() {
+export default async function Auth() {
   const {
     data: { user },
   } = await createClient().auth.getUser();
 
   return user ? (
-    <div className="flex items-center gap-4">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            className={`${outfit.className} mb-2 text-sm rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
-          >
-            My Account
-            <Image
-              src={profileIconPath}
-              alt="profile icon"
-              className="pl-2 h-[1rem] w-auto"
-            />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-          <Link href={"/privacyPolicy"}>
-            <h3 className="redirection-link">My Reviews</h3>
-          </Link>
-          <Link href={"/privacyPolicy"}>
-            <h3 className="redirection-link">Request to add Professor</h3>
-          </Link>
-          <form action={signOutAction}>
-            <Button type="submit">
-              <h3 className="redirection-link">Sign out</h3>
-            </Button>
-          </form>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <div
+      className={`${outfit.className} flex flex-col gap-6 text-xl text-white/80 items-center justify-center`}
+    >
+      <form action={signOutAction}>
+        <Button
+          type="submit"
+          className={`${outfit.className} mb-6 rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
+        >
+          Sign out
+          <Image
+            src={signoutIcon}
+            alt="google icon"
+            className="pl-2 h-[1rem] w-auto"
+          />
+        </Button>
+      </form>
+
+      <Link href={"/userReviews"}>
+        <h3 className="redirection-link">My Reviews</h3>
+      </Link>
+      <Link href={"/privacyPolicy"}>
+        <h3 className="redirection-link">Privacy Policy</h3>
+      </Link>
+      <Link href={"/termsOfService"}>
+        <h2 className="redirection-link">Terms of Service</h2>
+      </Link>
+      <Link href={"/requestProfessorForm"}>
+        <h3 className="redirection-link">Request to add Professor</h3>
+      </Link>
     </div>
   ) : (
-    <SigninBtn />
+    <div
+      className={`${outfit.className} flex flex-col gap-6 text-xl text-white/80 items-center justify-center`}
+    >
+      <SigninBtn />
+
+      <Link href={"/professors/0"}>
+        <h3 className="redirection-link">Professors</h3>
+      </Link>
+      <Link href={"/privacyPolicy"}>
+        <h3 className="redirection-link">Privacy Policy</h3>
+      </Link>
+      <Link href={"/termsOfService"}>
+        <h2 className="redirection-link">Terms of Service</h2>
+      </Link>
+      <Link href={"/requestProfessorForm"}>
+        <h3 className="redirection-link">Request to add Professor</h3>
+      </Link>
+    </div>
   );
 }

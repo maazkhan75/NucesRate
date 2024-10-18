@@ -13,16 +13,18 @@ const outfit = Outfit({
 
 export function SigninBtn() {
   return (
-    <Button
-      className={`${outfit.className} mb-2 rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
-      onClick={() => googleAuthSignIn("google")}
-    >
-      Sign in
-      <Image
-        src={GoogleIcon}
-        alt="google icon"
-        className="pl-2 h-[1rem] w-auto"
-      />
-    </Button>
+    <div className="flex justify-center">
+      <Button
+        className={`${outfit.className} mb-6 rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
+        onClick={() => googleAuthSignIn("google")}
+      >
+        Sign in
+        <Image
+          src={GoogleIcon}
+          alt="google icon"
+          className="pl-2 h-[1rem] w-auto"
+        />
+      </Button>
+    </div>
   );
 }

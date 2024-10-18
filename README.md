@@ -23,10 +23,9 @@ Although `NucesRate` is specifically designed for FAST-NUCES (all campuses), but
    - 👍👎 Students can upvote or downvote reviews for professors to highlight the most useful reviews.
    - 🔍 Reviews can be filtered based on various factors such as star ratings, most upvotes/downvotes, specific courses, and specific professors.
 
-4. **Request to Add Professors and Courses:**
+4. **Request to Add Professors:**
    - 📋 Students can request the NucesRate team to add professors who are not currently listed on the website by providing necessary details about the professor through a simple form to facilitate their inclusion in the database.
-   - 📋 Students can also request the addition of specific courses if they are not available on the platform by submitting course details using the provided form to help expand the available course list.
-
+   
 ---
 
 ## 🛠️ Technologies Used
