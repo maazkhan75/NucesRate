@@ -1,10 +1,16 @@
+import Link from "next/link";
 import { signOutAction } from "@/app/actions";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import {SigninBtn} from "./ui/googleSignIn-btn"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { SigninBtn } from "./ui/googleSignIn-btn";
 import { Outfit } from "next/font/google";
-import profileIconPath from "../public/assets/icons/profile.png"
+import profileIconPath from "../public/assets/icons/profile.png";
 import Image from "next/image";
 
 const outfit = Outfit({
@@ -12,9 +18,8 @@ const outfit = Outfit({
   weight: ["400", "500"],
 });
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
- 
 export default async function AuthButton() {
   const {
     data: { user },
@@ -27,7 +32,7 @@ export default async function AuthButton() {
           <Button
             className={`${outfit.className} mb-2 text-sm rounded-full bg-black text-white/80 border-2 border-white/20 hover:bg-transparent hover:border-white/35 hover:text-white transition-all duration-300 ease-in-out`}
           >
-            My Profile
+            My Account
             <Image
               src={profileIconPath}
               alt="profile icon"
@@ -37,9 +42,15 @@ export default async function AuthButton() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
+          <Link href={"/privacyPolicy"}>
+            <h3 className="redirection-link">My Reviews</h3>
+          </Link>
+          <Link href={"/privacyPolicy"}>
+            <h3 className="redirection-link">Request to add Professor</h3>
+          </Link>
           <form action={signOutAction}>
-            <Button type="submit" variant={"outline"}>
-              Sign out
+            <Button type="submit">
+              <h3 className="redirection-link">Sign out</h3>
             </Button>
           </form>
         </DropdownMenuContent>

@@ -23,6 +23,7 @@ export function Navbar() {
 
         {/* for bigger screens */}
         <div className="hidden md:flex gap-4 items-center text-white/80">
+          
           {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
         </div>
 
