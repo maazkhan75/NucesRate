@@ -77,7 +77,7 @@ Although `NucesRate` is specifically designed for FAST-NUCES (all campuses), but
    ```
 3. Run the app:
    ```bash
-   npm start
+   npm run dev
    ```
 4. Access the app at
 ```bash   

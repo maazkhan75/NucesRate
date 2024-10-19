@@ -23,11 +23,12 @@ export const Hero = () => {
         </p>
 
         <div className="flex items-center justify-center pt-5">
+
           <div className="btn-wrapper w-[140px] h-[40px]">
+            <Link href="/professors/0">     
             <div className="btn-content flex justify-center items-center">
-              <Link
-                href="/professors/0"
-                className={`
+              <p
+              className={`
               ${outfit.className}
               text-md text-white
               font-[500]
@@ -36,8 +37,9 @@ export const Hero = () => {
             `}
               >
                 Get Started
-              </Link>
+              </p>
             </div>
+            </Link>
           </div>
         </div>
       </div>
