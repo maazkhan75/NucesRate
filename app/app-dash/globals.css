@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #151c2c;
+  --bgSoft: #182237
+  --foreground: #ffffff;
+  --text: white;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--background);
+    --foreground: #091858;
+  }
+} */
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

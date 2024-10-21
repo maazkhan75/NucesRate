@@ -1,0 +1,19 @@
+.container {  
+    display: flex;  
+    flex-direction: row;  
+    justify-content: space-around;  
+    height: 5vh;  
+    transition: background-color 0.3s;  
+}  
+.container:hover, .active {   
+    background-color: #2e374a;  
+    color: white;  
+    border-radius: 5px;  
+}  
+
+.icon {  
+    flex: 1;  
+}  
+.name {  
+    flex: 4;  
+}

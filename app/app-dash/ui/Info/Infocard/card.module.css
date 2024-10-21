@@ -1,0 +1,25 @@
+.container {  
+    display: flex;  
+    flex-direction: column;  
+    justify-content: space-around;  
+    height:fit-content;
+    width: 50%; 
+    padding-left:5px;
+    padding-top: 5px;
+    border: 10cm; 
+    transition: background-color 0.3s;  
+}  
+.container:hover, .active {   
+    background-color: #2e374a;  
+    color: white;  
+    border-radius: 2px;  
+}  
+
+.title {  
+    flex: 1;  
+    color: #7f8491;
+}  
+.info {  
+    flex: 4;  
+    font-size: xx-large;
+}

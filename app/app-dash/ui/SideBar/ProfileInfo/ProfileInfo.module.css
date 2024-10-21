@@ -1,0 +1,23 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+
+.roundimageContainer {  
+
+  width: 100%; /* Adjust the size as needed */  
+  height: 75%; /* Adjust the size as needed */  
+  overflow: hidden; /* Ensures the image doesn't overflow the container */  
+  border-radius: 50%; /* Makes the container itself round */  
+  display: flex; /* Center the image if it doesn't fill the container */  
+  flex-direction: row;
+  justify-content: space-around; /* Center align */  
+  align-items: center; /* Center align */  
+}  
+
+.roundimage {  
+  width: 75%; /* Makes the image fill the container */  
+  height: 80%; /* Maintains aspect ratio */  
+  border-radius: 50%; /* Makes the image round */  
+}

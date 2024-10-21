@@ -115,3 +115,4 @@ export async function submitVoteAction(review_id: number, vote_type: 'upvote' | 
     message: "Like/Dislike submitted successfully.",
   };
 }
+
