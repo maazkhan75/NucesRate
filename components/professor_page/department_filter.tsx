@@ -1,32 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import { RiArrowDropDownFill } from "react-icons/ri";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { NewPopoverContent } from "../ui/new_popover";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BiSolidDownArrow } from "react-icons/bi";
 
-const frameworks = [
-  {
-    value: null, 
-    label: "None"
-  },
-  {
-    value: "Computing",
-    label: "Computing",
-  },
+const departments = [
+  { value: null, label: "None" },
+  { value: "Computing", label: "Computing" },
   {
     value: "Electrical Engineering",
     label: "Electrical Engineering",
@@ -36,55 +24,37 @@ const frameworks = [
     label: "Civil Engineering",
   },
   {
-    value: 'Management Sciences',
-    label: 'Management Sciences'
+    value: "Management Sciences",
+    label: "Management Sciences",
   },
   {
-    value: 'Science and Humanities',
-    label: 'Science and Humanities'
-  }
-]
+    value: "Science and Humanities",
+    label: "Science and Humanities",
+  },
+];
 
-export function DepartmentsFilter({value, setValue} : {value: string | null, setValue: React.Dispatch<React.SetStateAction<string | null>>}) {
-  const [open, setOpen] = React.useState(false)
-
+export function DepartmentsFilter({
+  value,
+  setValue,
+}: {
+  value: string | null;
+  setValue: React.Dispatch<React.SetStateAction<string | null>>;
+}) {
   return (
-    <Popover  open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="default"
-          role="combobox"
-          aria-expanded={open}
-          className="w-[150px] md:w-[200px] lg:w-[200px] justify-between"
-        >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "Department... "}
-          <RiArrowDropDownFill style={{scale:'2'}} />
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild>
+        <Button className="w-56 flex justify-between" variant="default">
+          <span>{value ? value : "Select Department..."}</span>
+          <BiSolidDownArrow />
         </Button>
-      </PopoverTrigger>
-      <NewPopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput placeholder="Search Department..." className="h-9" />
-          <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
-            <CommandGroup>
-              {frameworks.map((framework) => (
-                <CommandItem
-                  key={framework.value}
-                  value={framework.value || ''}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? null : currentValue)
-                    setOpen(false);
-                  }}
-                >
-                  {framework.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </NewPopoverContent>
-    </Popover>
-  )
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56 h-56">
+        {departments.map((dept) => (
+          <DropdownMenuItem onClick={() => setValue(dept.value)}>
+            <span>{dept.label}</span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }

@@ -1,6 +1,5 @@
-
 export type ProfessorsPageUrl = {
-    prof_name: string | null,
-    course : string | null,
-    department : string | null,
+  prof_name: string | null;
+  tag: string | null;
+  department: string | null;
 };

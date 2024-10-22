@@ -1,11 +1,10 @@
-
-import React from 'react';
-import Main from '@/components/moderator/main';
+import React from "react";
+import Main from "@/components/moderator/main";
 const Dashboard = () => {
   return (
     <>
-    <Main/>
-   </>
+      <Main />
+    </>
   );
 };
 

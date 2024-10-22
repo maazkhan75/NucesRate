@@ -13,27 +13,32 @@ export const signOutAction = async () => {
 export async function googleAuthSignIn(provider: Provider) {
   const supabase = createClient();
   if (!provider) {
-      return redirect('/login?message=No-Provider-Selected');
+    return redirect("/login?message=No-Provider-Selected");
   }
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: "https://nucesrate.vercel.app/professors/0",
+      redirectTo: "https://reviewfast.vercel.app/auth/callback",
     },
   });
 
   if (data.url) {
-    return redirect(data.url)
+    return redirect(data.url);
   }
-  return redirect('/login?message=Cannot-Authenticate');
+  return redirect("/login?message=Cannot-Authenticate");
 }
 
-export async function submitReviewAction(rating: number, selectedCourse: string | null, comment: string, prof_id: number) {
+export async function submitReviewAction(
+  rating: number,
+  comment: string,
+  prof_id: number,
+  tag_names: string[]
+) {
   const supabase = createClient();
 
   const {
-    data: { user }
+    data: { user },
   } = await supabase.auth.getUser();
 
   if (!user) {
@@ -43,41 +48,44 @@ export async function submitReviewAction(rating: number, selectedCourse: string 
     };
   }
 
-  if (user.email && !user.email.endsWith('@lhr.nu.edu.pk')) {
+  if (user.email && !user.email.endsWith("@lhr.nu.edu.pk")) {
     return {
       success: false,
       message: "lhr.nu.edu.pk required",
     };
   }
 
-  const { data, error } = await supabase.rpc('add_review', {
+  const { data, error } = await supabase.rpc("add_review", {
     p_prof_id: prof_id,
     p_comment: comment,
     p_rating: rating,
-    p_course_name: selectedCourse,
-    p_student_email: user.email
+    p_student_email: user.email,
+    p_tag_names: tag_names,
   });
 
   if (error) {
-    console.log(error);
     return {
       success: false,
-      message: "Error Adding Review!",
+      message: error.message,
+      id: null,
     };
   }
 
   return {
     success: true,
     message: "Review submitted successfully.",
+    id: data as number,
   };
 }
 
-
-export async function submitVoteAction(review_id: number, vote_type: 'upvote' | 'downvote') {
+export async function submitVoteAction(
+  review_id: number,
+  vote_type: "upvote" | "downvote"
+) {
   const supabase = createClient();
 
   const {
-    data: { user }
+    data: { user },
   } = await supabase.auth.getUser();
 
   if (!user) {
@@ -87,20 +95,18 @@ export async function submitVoteAction(review_id: number, vote_type: 'upvote' | 
     };
   }
 
-  if (user.email && !user.email.endsWith('@lhr.nu.edu.pk')) {
+  if (user.email && !user.email.endsWith("@lhr.nu.edu.pk")) {
     return {
       success: false,
       message: "lhr.nu.edu.pk required",
     };
-  }  
+  }
 
-  const { data, error } = await supabase.rpc('cast_vote', {
+  const { data, error } = await supabase.rpc("cast_vote", {
     input_student_email: user.email,
     input_review_id: review_id,
-    input_vote_type: vote_type
+    input_vote_type: vote_type,
   });
-
-  console.log(data, error);
 
   if (error) {
     console.log(error);

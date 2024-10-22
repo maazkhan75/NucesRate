@@ -11,10 +11,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { createClient } from "@/utils/supabase/client";
 import { NewPopoverContent } from "../ui/new_popover";
 
@@ -29,17 +26,16 @@ type CourseFilterProps = {
 };
 
 const formatCourseName = (courseName: string) => {
-  const words = courseName.split(' ');
+  const words = courseName.split(" ");
 
   if (words.length <= 3) {
-      return courseName;
+    return courseName;
   }
-  
-  const initials = words.map(word => word.charAt(0).toUpperCase()).join('');
-  
+
+  const initials = words.map((word) => word.charAt(0).toUpperCase()).join("");
+
   return initials;
 };
-
 
 export function CourseFilter({ deptId, value, setValue }: CourseFilterProps) {
   const [open, setOpen] = React.useState(false);
@@ -68,10 +64,9 @@ export function CourseFilter({ deptId, value, setValue }: CourseFilterProps) {
     fetchCourses();
   }, [deptId]);
 
-
   return (
     <>
-      {courses.length > 0 ? (  // Check if courses are loaded
+      {courses.length > 0 ? ( // Check if courses are loaded
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button
@@ -81,7 +76,11 @@ export function CourseFilter({ deptId, value, setValue }: CourseFilterProps) {
               className="w-[100%] justify-between"
             >
               {value
-                ? formatCourseName(courses.find((course) => course.course_name.trim() === value?.trim())?.course_name!)
+                ? formatCourseName(
+                    courses.find(
+                      (course) => course.course_name.trim() === value?.trim()
+                    )?.course_name!
+                  )
                 : "Select Course..."}
               <RiArrowDropDownFill style={{ scale: "2" }} />
             </Button>
@@ -107,7 +106,7 @@ export function CourseFilter({ deptId, value, setValue }: CourseFilterProps) {
                 </CommandGroup>
               </CommandList>
             </Command>
-            </NewPopoverContent>
+          </NewPopoverContent>
         </Popover>
       ) : (
         <h2>Loading..</h2>

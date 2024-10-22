@@ -1,14 +1,14 @@
-import PendingReviews from '@/components/moderator/pendingReviews';
-import { createClient } from '@/utils/supabase/client';
+import PendingReviews from "@/components/moderator/pendingReviews";
+import { createClient } from "@/utils/supabase/client";
 
- const fetchReviews = async () => {
+const fetchReviews = async () => {
   const supabase = createClient();
 
   // Fetch reviews where 'approved' is null
   let { data: reviews, error: reviewError } = await supabase
-    .from('reviews')
-    .select('*')
-    .is('approved', null);
+    .from("reviews")
+    .select("*")
+    .is("approved", null);
 
   if (reviewError) {
     return {
@@ -17,27 +17,23 @@ import { createClient } from '@/utils/supabase/client';
       },
     };
   }
-  let reviewsWithStudents=null;
+  let reviewsWithStudents = null;
   // Fetch student emails for each review
-  if(reviews)
-     reviewsWithStudents = await Promise.all(
-        
-        reviews.map(async (review) => {
+  if (reviews)
+    reviewsWithStudents = await Promise.all(
+      reviews.map(async (review) => {
         let { data: student, error: studentError } = await supabase
-            .from('students')
-            .select('stud_email')
-            .eq('stud_id', review.student_id)
-            .single();
+          .from("students")
+          .select("stud_email")
+          .eq("stud_id", review.student_id)
+          .single();
 
         if (studentError) {
-            return { ...review, stud_email: 'Unknown' };
+          return { ...review, stud_email: "Unknown" };
         }
-            if(student)
-                return { ...review, stud_email: student.stud_email };
-        })
-        
+        if (student) return { ...review, stud_email: student.stud_email };
+      })
     );
-
 
   return {
     props: {
@@ -46,8 +42,8 @@ import { createClient } from '@/utils/supabase/client';
   };
 };
 
-const  PendingReviewsList  = async() => {
-    const reviewsWithStudents = await fetchReviews();
+const PendingReviewsList = async () => {
+  const reviewsWithStudents = await fetchReviews();
 
   return (
     <>
