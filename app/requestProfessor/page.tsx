@@ -106,9 +106,9 @@ const RequestProfessor: React.FC = () => {
         className={`${outfit.className} relative flex justify-center items-center min-h-screen overflow-hidden`}
       >
         <motion.div
-          className="absolute inset-0 z-0 bg-gradient-to-r from-purple-800 via-blue-600 to-indigo-800 opacity-20"
+          className="absolute inset-0 z-0 bg-gradient-to-b from-cyan-700 via-blue-600 to-purple-500 opacity-20"
           animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
         />
 
         <button
@@ -130,7 +130,7 @@ const RequestProfessor: React.FC = () => {
           className="bg-opacity-90 p-10 rounded-lg shadow-2xl w-full max-w-lg backdrop-blur-lg"
         >
           <h1
-            className={`${outfit.className} text-3xl font-bold text-center mb-6 tracking-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent`}
+            className={`${outfit.className} text-3xl font-bold text-center mb-6 tracking-tight bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent`}
           >
             Request a Professor
           </h1>
@@ -178,10 +178,10 @@ const RequestProfessor: React.FC = () => {
 
           <motion.button
             type="submit"
-            className="block mx-auto mt-6 w-40 text-center text-white py-2 px-1 border-2 border-white/50 hover:border-white/90 rounded-full focus:outline-none focus:border-blue-500 focus:shadow-[0_0_8px_1px_rgba(74,144,226,0.75)] hover:shadow-lg active:text-black active:scale-95 active:border-blue-600 active:bg-[#0095ff] transition-all duration-300 "
-            whileFocus={{ scale: 1.04 }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.95 }}
+            className="block mx-auto mt-6 w-40 text-center text-white py-2 px-1 border-2 border-white/50 rounded-full focus:outline-none focus:border-blue-500 focus:shadow-[0_0_10px_2px_rgba(74,144,226,0.75)] hover:text-black hover:border-blue-700 hover:shadow-[0_0_6px_2px_rgba(74,144,226,0.75)] hover:bg-gradient-to-r from-blue-600 to-indigo-500 active:text-black active:bg-gradient-to-l from-cyan-400 via-blue-500 to-indigo-500 active:border-blue-600 active:shadow-[0_0_10px_2px_rgba(74,144,226,0.75)] transition-all duration-300"
+            whileFocus={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97, y: 2 }}
           >
             Submit Request
           </motion.button>
