@@ -36,5 +36,5 @@ export default async function Reviews({prof_id} : {prof_id: number}) {
 
   const reviews = data as ReviewType[];
 
-  return <ReviewCards prof_id={prof_id} reviews={reviews} student_email={user?.email} />
+  return <ReviewCards reviews={reviews} />
 }
