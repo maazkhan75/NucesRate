@@ -110,7 +110,7 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
                 filteredReviews.map((review) => (
                     <div key={review.review_id} className="bg-muted rounded-3xl p-4 mb-4">
                         <div className="flex items-center space-x-2 mb-2 justify-between">
-                            <div className="text-sm text-muted-foreground">{review.student_email}  <Badge className='ml-3 mr-3'>{review.review_status}</Badge> {showProfName &&<span>for <Link className='underline' href={`/professor/${review.professor_id}`}>{review.professor_name}</Link></span> }</div>
+                            <div className="text-sm text-muted-foreground">{!showProfName && review.student_email} {!showProfName && <Badge className='ml-3 mr-3'>{review.review_status}</Badge>} {showProfName &&<span>for <Link className='underline' href={`/professor/${review.professor_id}`}>{review.professor_name}</Link></span> }</div>
                             {review.is_user_review && <AddReviewButton prof_id={review.professor_id} p_rating={review.rating} p_comment={review.comment} p_string={review.tag_names} />}
                         </div>
                         <div className="flex mb-2">

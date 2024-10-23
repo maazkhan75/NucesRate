@@ -13,7 +13,7 @@ export default function ShowCollapsibleReviews({heading, reviews} : {heading: st
         <Collapsible
             open={isOpen}
             onOpenChange={setIsOpen}
-            className="bg-white rounded-lg p-6 shadow-lg"
+            className="bg-white rounded-lg p-4 shadow-lg"
         >
             <div className="flex items-center justify-between">
                 <h2 className="text-xl text-black font-bold">{heading}</h2>

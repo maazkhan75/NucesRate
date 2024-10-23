@@ -19,7 +19,7 @@ export async function googleAuthSignIn(provider: Provider) {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: 'https://reviewfast.vercel.app/auth/callback'
+      redirectTo: 'http://localhost:3000/auth/callback'
     },
   })
 
