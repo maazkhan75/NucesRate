@@ -6,8 +6,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import ReviewCards from '../professor_review/review_cards'
 import { ReviewType } from '../professor_review/reviews'
 
-export default function ShowCollapsibleReviews({heading, reviews} : {heading: string, reviews: ReviewType[]}) {
-    const [isOpen, setIsOpen] = React.useState(true)
+export default function ShowCollapsibleReviews({p_isOpen = true, heading, reviews, showProfName, showStudInfo, isAdmin=false } : {p_isOpen?:boolean, heading: string, reviews: ReviewType[], showProfName:boolean, showStudInfo:boolean, isAdmin?:boolean}) {
+    const [isOpen, setIsOpen] = React.useState(p_isOpen)
 
     return (
         <Collapsible
@@ -29,7 +29,7 @@ export default function ShowCollapsibleReviews({heading, reviews} : {heading: st
                 </CollapsibleTrigger>
             </div>
             <CollapsibleContent className="mt-4">
-                <ReviewCards showProfName={true} reviews={reviews} />
+                <ReviewCards isAdmin={isAdmin} showBadge={false} showStudInfo={showStudInfo} showProfName={showProfName} reviews={reviews} />
             </CollapsibleContent>
         </Collapsible>
     );

@@ -20,14 +20,14 @@ export default async function Component() {
   const user_email = user?.user_metadata.email;
 
   const { data: approvedData, error: approvedError } = await supabase.rpc('get_reviews_by_student_email', {
-    input_student_email: user ? user.email : ''
+    input_student_email: user.email ? user_email : ''
   });
   
   if (approvedError) {
     console.log(approvedError);
     throw Error('Error Fetching Approved Reviews!');
   }
-  
+
   const approvedReviews = approvedData as ReviewType[];
 
   const { data: pendingData, error: pendingError } = await supabase.rpc('get_disapproved_reviews_by_student_email', {
@@ -44,7 +44,7 @@ export default async function Component() {
   return (
     <>
     <Navbar />
-    <DashboardStud user_data={user_data} user_email={user_email} approvedReviews={approvedReviews} pendingReviews={pendingReviews} />
+    <DashboardStud showStudInfo={false} showProfName={true} user_data={user_data} user_email={user_email} approvedReviews={approvedReviews} pendingReviews={pendingReviews} />
     </>
   )
 }

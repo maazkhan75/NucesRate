@@ -20,7 +20,7 @@ function extractStudentDetails(inputString : string) {
     };
 }
 
-export default function DashboardStud({user_email, user_data, approvedReviews, pendingReviews} : {user_email: string, user_data: string, approvedReviews: ReviewType[], pendingReviews: ReviewType[]}) {
+export default function DashboardStud({ p_isOpen = true, isAdmin=false, showStudInfo, showProfName, user_email, user_data, approvedReviews, pendingReviews} : {p_isOpen?:boolean, isAdmin?: boolean, showStudInfo:boolean, showProfName:boolean, user_email: string, user_data: string, approvedReviews: ReviewType[], pendingReviews: ReviewType[]}) {
 
     const {studentName, city, year, degreeName} = extractStudentDetails(user_data);
 
@@ -29,11 +29,8 @@ export default function DashboardStud({user_email, user_data, approvedReviews, p
         <div className="max-w-4xl mx-auto space-y-8">
             {<section className="bg-white text-black rounded-lg p-6 shadow-lg">
             <div className="flex flex-col sm:flex-row items-center gap-6">
-                {/* <Avatar className="w-24 h-24 border-2 border-blue-500">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback>{user?.email.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                </Avatar> */}
                 <div className="text-center sm:text-left">
+                {isAdmin && <h1 className="text-2xl font-bold">Hi Moderator!</h1>}
                 <h1 className="text-2xl font-bold">{studentName}</h1>
                 <p className="text-gray-600">{user_email}</p>
                 <p className="text-gray-600">{city}</p>
@@ -42,8 +39,8 @@ export default function DashboardStud({user_email, user_data, approvedReviews, p
             </div>
             </section>}
             
-            <ShowCollapsibleReviews heading={"Accepted Reviews"} reviews={approvedReviews} />
-            <ShowCollapsibleReviews heading={"Pending Reviews"} reviews={pendingReviews} />
+            <ShowCollapsibleReviews p_isOpen={p_isOpen} isAdmin={isAdmin} showStudInfo={showStudInfo} showProfName={showProfName} heading={"Accepted Reviews"} reviews={approvedReviews} />
+            <ShowCollapsibleReviews isAdmin={isAdmin} showStudInfo={showStudInfo} showProfName={showProfName} heading={"Pending Reviews"} reviews={pendingReviews} />
         </div>
         </div>
     )

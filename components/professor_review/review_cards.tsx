@@ -5,14 +5,14 @@ import FiltersReviewPage from "./filters_review_page";
 import { ReviewType } from "./reviews";
 import { Star, ThumbsDown, ThumbsUp, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
-import { submitVoteAction } from '@/app/actions';
+import { submitIsApproved, submitVoteAction } from '@/app/actions';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { Badge } from "../ui/badge";
 import { AddReviewButton } from './add_review_button';
 import Link from 'next/link';
 
-export default function ReviewCards({ reviews, showProfName = false}: { reviews: ReviewType[] , showProfName?:boolean|undefined}) {
+export default function ReviewCards({ showStudInfo= true, showBadge = true, reviews, showProfName = false, isAdmin = false}: { showStudInfo?:boolean, showBadge?:boolean, reviews: ReviewType[] , showProfName?:boolean|undefined, isAdmin?:boolean}) {
     const [filteredReviews, setFilteredReviews] = useState<ReviewType[]>(reviews);
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [selectedRating, setSelectedRating] = useState<number | null>(null);
@@ -37,6 +37,17 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
         setFilteredReviews(filtered);
     }, [selectedTag, selectedRating, reviews]);
 
+    async function handleApproved(review_id: number, action: boolean) {
+        const { success, message } = await submitIsApproved(review_id, action);
+        
+        if (!success) {
+            toast.error('Error Adding/Rejecting Review!');
+        } else {
+            toast.success('Action Sucessfull!');
+            router.refresh()
+        }
+    }
+
     async function handleVote(review_id: number, vote_type: 'upvote' | 'downvote') {
         setPendingVoteId(review_id);
         setPendingVoteType(vote_type);
@@ -50,13 +61,13 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
                         updatedReview.user_vote = 'upvote';
                         updatedReview.upvotes += 1;
                         if (review.user_vote === 'downvote') {
-                            updatedReview.downvotes -= 1; // Adjust downvotes if switching from downvote to upvote
+                            updatedReview.downvotes -= 1;
                         }
                     } else {
                         updatedReview.user_vote = 'downvote';
                         updatedReview.downvotes += 1;
                         if (review.user_vote === 'upvote') {
-                            updatedReview.upvotes -= 1; // Adjust upvotes if switching from upvote to downvote
+                            updatedReview.upvotes -= 1;
                         }
                     }
                     return updatedReview;
@@ -91,7 +102,7 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
             
             setPendingVoteId(null);
             setPendingVoteType(null);
-            router.refresh(); // This will ensure the latest data is fetched
+            router.refresh();
         });
     }
     
@@ -110,7 +121,7 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
                 filteredReviews.map((review) => (
                     <div key={review.review_id} className="bg-muted rounded-3xl p-4 mb-4">
                         <div className="flex items-center space-x-2 mb-2 justify-between">
-                            <div className="text-sm text-muted-foreground">{!showProfName && review.student_email} {!showProfName && <Badge className='ml-3 mr-3'>{review.review_status}</Badge>} {showProfName &&<span>for <Link className='underline' href={`/professor/${review.professor_id}`}>{review.professor_name}</Link></span> }</div>
+                            <div className="text-sm text-muted-foreground">{showStudInfo && review.student_email} {showBadge && <Badge className='ml-3 mr-3'>{review.review_status}</Badge>} {showProfName &&<span>for <Link className='underline' href={`/professor/${review.professor_id}`}>{review.professor_name}</Link></span> }</div>
                             {review.is_user_review && <AddReviewButton prof_id={review.professor_id} p_rating={review.rating} p_comment={review.comment} p_string={review.tag_names} />}
                         </div>
                         <div className="flex mb-2">
@@ -166,6 +177,18 @@ export default function ReviewCards({ reviews, showProfName = false}: { reviews:
                                 }
                             </div>
                         </div>
+                        
+                        {
+                            isAdmin &&
+                            <div className='flex justify-end gap-4'>
+                                <Button onClick={() => handleApproved(review.review_id, true)}>
+                                    Accept
+                                </Button>
+                                <Button variant={'destructive'} onClick={() => handleApproved(review.review_id, false)}>
+                                    Reject
+                                </Button>
+                            </div>
+                        }
                     </div>
                 ))
             }

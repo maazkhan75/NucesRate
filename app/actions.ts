@@ -114,3 +114,44 @@ export async function submitVoteAction(review_id: number, vote_type: 'upvote' | 
     message: "Like/Dislike submitted successfully.",
   };
 }
+
+export async function submitIsApproved(review_id: number, action: boolean) {
+  const supabase = createClient();
+
+  const {
+    data: { user }
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      success: false,
+      message: "Sign-in with uni email!",
+    };
+  }
+
+  if (user.email && !user.email.endsWith('@lhr.nu.edu.pk')) {
+    return {
+      success: false,
+      message: "lhr.nu.edu.pk required",
+    };
+  }  
+
+  const { data, error } = await supabase.rpc('moderate_review', {
+    p_review_id: review_id,
+    p_moderator_email: user.email,
+    p_isapprove: action
+  });
+
+  if (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Error Accepting/Rejecting Review!",
+    };
+  }
+
+  return {
+    success: true,
+    message: "Review Accepted/Rejected Successfully.",
+  };
+}
