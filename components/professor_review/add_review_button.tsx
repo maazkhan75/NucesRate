@@ -102,10 +102,10 @@ export function AddReviewButton({
         ) : (
           <button
             onClick={() => setIsOpen(true)}
-            className="text-sm bg-primary text-primary-foreground rounded-full p-2 flex items-center hover:bg-primary/90 transition-colors"
+            className="text-sm bg-primary text-primary-foreground rounded-full p-3 flex items-center hover:bg-primary/90 transition-colors"
           >
             <Pencil className="w-4 h-4 mr-2" />
-            Edit Review
+            Edit
           </button>
         )}
       </DrawerTrigger>
