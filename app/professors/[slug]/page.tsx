@@ -1,5 +1,4 @@
 import  SearchBar from "@/components/ui/search-bar"
-import Filters from "@/components/professor_page/filters";
 import ProfessorsCards from "@/components/professor_page/professors_cards";
 import { ProfessorsPageUrl } from "@/components/types/professors_url_type";
 import { Footer } from "@/components/ui/footer";

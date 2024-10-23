@@ -11,7 +11,9 @@ export type ReviewType = {
     downvotes: number,
     user_vote: 'downvote' | 'upvote' | null
     review_status: 'approved' | 'pending'
-    is_user_review: boolean
+    is_user_review: boolean,
+    professor_id: number,
+    professor_name: string
 }
 
 

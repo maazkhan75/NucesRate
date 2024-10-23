@@ -73,13 +73,24 @@ export function AddReviewButton({ prof_id, p_rating = 0, p_comment = "", p_strin
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger asChild>
-        <button
-          onClick={() => setIsOpen(true)} // Open drawer on button click
-          className="text-sm bg-primary text-primary-foreground rounded-full p-4 flex items-center hover:bg-primary/90 transition-colors"
-        >
-          <Pencil className="w-4 h-4 mr-2" />
-          { p_comment === "" ? "Write a Review" : "Edit Review"}
-        </button>
+        { p_comment === "" 
+          ? 
+          <button
+            onClick={() => setIsOpen(true)}
+            className="text-sm bg-primary text-primary-foreground rounded-full p-4 flex items-center hover:bg-primary/90 transition-colors"
+          >
+            <Pencil className="w-4 h-4 mr-2" />
+            Write a Review
+          </button>
+          :
+          <button
+            onClick={() => setIsOpen(true)}
+            className="text-sm bg-primary text-primary-foreground rounded-full p-2 flex items-center hover:bg-primary/90 transition-colors"
+          >
+            <Pencil className="w-4 h-4 mr-2" />
+            Edit Review
+          </button>
+        }
       </DrawerTrigger>
 
       <DrawerContent >
