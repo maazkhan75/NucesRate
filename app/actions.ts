@@ -121,3 +121,89 @@ export async function submitVoteAction(
     message: "Like/Dislike submitted successfully.",
   };
 }
+
+
+export async function submitIsApproved(review_id: number, action: boolean) {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return {
+      success: false,
+      message: "Sign-in with uni email!",
+    };
+  }
+  if (user.email && !user.email.endsWith("@lhr.nu.edu.pk")) {
+    return {
+      success: false,
+      message: "lhr.nu.edu.pk required",
+    };
+  }
+  const { data, error } = await supabase.rpc("moderate_review", {
+    p_review_id: review_id,
+    p_moderator_email: user.email,
+    p_isapprove: action,
+  });
+  if (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Error Accepting/Rejecting Review!",
+    };
+  }
+  return {
+    success: true,
+    message: "Review Accepted/Rejected Successfully.",
+  };
+}
+
+
+export async function submitProfessorRequest(
+  professor_name: string,
+  dept_id: number,
+  gender_type: "Male" | "Female",
+  status: "pending"
+) {
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      success: false,
+      message: "You need to `SignIn` to submit request!",
+    };
+  }
+
+  if (user.email && !user.email.endsWith("@lhr.nu.edu.pk")) {
+    return {
+      success: false,
+      message:
+        "You need to Sign In with your university email (@campus.nu.edu.pk)",
+    };
+  }
+
+  const { data, error } = await supabase.rpc("addProfessorRequest", {
+    input_professor_name: professor_name,
+    input_gender_type: gender_type,
+    input_dept_id: dept_id,
+    input_status: status,
+    input_stud_email: user.email,
+  });
+
+  if (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Error submitting professor request!",
+    };
+  }
+
+  return {
+    success: true,
+    message: "Your `professor request` submitted successfully.",
+  };
+}

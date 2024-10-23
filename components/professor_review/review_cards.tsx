@@ -5,27 +5,25 @@ import FiltersReviewPage from "./filters_review_page";
 import { ReviewType } from "./reviews";
 import { Star, ThumbsDown, ThumbsUp, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
-import { submitVoteAction } from "@/app/actions";
+import { submitIsApproved, submitVoteAction } from "@/app/actions";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@radix-ui/react-tooltip";
 import { Badge } from "../ui/badge";
-import { formatTagName } from "@/app/helping_functions";
 import { AddReviewButton } from "./add_review_button";
+import Link from "next/link";
 
 export default function ReviewCards({
+  showStudInfo = true,
+  showBadge = true,
   reviews,
-  student_email,
-  prof_id,
+  showProfName = false,
+  isAdmin = false,
 }: {
+  showStudInfo?: boolean;
+  showBadge?: boolean;
   reviews: ReviewType[];
-  student_email: string | undefined;
-  prof_id: number;
+  showProfName?: boolean | undefined;
+  isAdmin?: boolean;
 }) {
   const [filteredReviews, setFilteredReviews] = useState<ReviewType[]>(reviews);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -37,7 +35,6 @@ export default function ReviewCards({
   >(null);
   const router = useRouter();
 
-  // Get distinct tags from reviews
   const distinctTags = Array.from(
     new Set(reviews.flatMap((review) => review.tag_names))
   );
@@ -58,6 +55,17 @@ export default function ReviewCards({
     setFilteredReviews(filtered);
   }, [selectedTag, selectedRating, reviews]);
 
+  async function handleApproved(review_id: number, action: boolean) {
+    const { success, message } = await submitIsApproved(review_id, action);
+
+    if (!success) {
+      toast.error("Error Adding/Rejecting Review!");
+    } else {
+      toast.success("Action Sucessfull!");
+      router.refresh();
+    }
+  }
+
   async function handleVote(
     review_id: number,
     vote_type: "upvote" | "downvote"
@@ -65,16 +73,57 @@ export default function ReviewCards({
     setPendingVoteId(review_id);
     setPendingVoteType(vote_type);
 
+    // Optimistically update the vote counts
+    setFilteredReviews((prevReviews) =>
+      prevReviews.map((review) => {
+        if (review.review_id === review_id) {
+          const updatedReview = { ...review };
+          if (vote_type === "upvote") {
+            updatedReview.user_vote = "upvote";
+            updatedReview.upvotes += 1;
+            if (review.user_vote === "downvote") {
+              updatedReview.downvotes -= 1;
+            }
+          } else {
+            updatedReview.user_vote = "downvote";
+            updatedReview.downvotes += 1;
+            if (review.user_vote === "upvote") {
+              updatedReview.upvotes -= 1;
+            }
+          }
+          return updatedReview;
+        }
+        return review;
+      })
+    );
+
     startTransition(async () => {
       const { success, message } = await submitVoteAction(review_id, vote_type);
 
-      if (success) {
-        router.refresh();
-      } else {
+      if (!success) {
         toast.error(message);
+        // Rollback optimistic updates if the request fails
+        setFilteredReviews((prevReviews) =>
+          prevReviews.map((review) => {
+            if (review.review_id === review_id) {
+              const updatedReview = { ...review };
+              if (vote_type === "upvote") {
+                updatedReview.user_vote = null;
+                updatedReview.upvotes -= 1;
+              } else {
+                updatedReview.user_vote = null;
+                updatedReview.downvotes -= 1;
+              }
+              return updatedReview;
+            }
+            return review;
+          })
+        );
       }
+
       setPendingVoteId(null);
       setPendingVoteType(null);
+      router.refresh();
     });
   }
 
@@ -96,13 +145,26 @@ export default function ReviewCards({
       {filteredReviews.map((review) => (
         <div key={review.review_id} className="bg-muted rounded-3xl p-4 mb-4">
           <div className="flex items-center space-x-2 mb-2 justify-between">
-            <p className="text-sm text-muted-foreground">
-              {review.student_email}{" "}
-              <Badge className="ml-3">{review.review_status}</Badge>
-            </p>
+            <div className="text-sm text-muted-foreground">
+              {showStudInfo && review.student_email}{" "}
+              {showBadge && (
+                <Badge className="ml-3 mr-3">{review.review_status}</Badge>
+              )}{" "}
+              {showProfName && (
+                <span>
+                  for{" "}
+                  <Link
+                    className="underline"
+                    href={`/professor/${review.professor_id}`}
+                  >
+                    {review.professor_name}
+                  </Link>
+                </span>
+              )}
+            </div>
             {review.is_user_review && (
               <AddReviewButton
-                prof_id={prof_id}
+                prof_id={review.professor_id}
                 p_rating={review.rating}
                 p_comment={review.comment}
                 p_string={review.tag_names}
@@ -182,6 +244,20 @@ export default function ReviewCards({
                 })}
             </div>
           </div>
+
+          {isAdmin && (
+            <div className="flex justify-end gap-4">
+              <Button onClick={() => handleApproved(review.review_id, true)}>
+                Accept
+              </Button>
+              <Button
+                variant={"destructive"}
+                onClick={() => handleApproved(review.review_id, false)}
+              >
+                Reject
+              </Button>
+            </div>
+          )}
         </div>
       ))}
     </div>

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Select from "react-select";
 import Image from "next/image";
 import CloseIcon from "../../public/assets/icons/close.png";
+import { submitProfessorRequest } from "@/app/actions";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -20,12 +21,9 @@ const departmentOptions = [
   { value: "management", label: "Management Sciences" },
 ];
 
-const campusOptions = [
-  { value: "isl", label: "Islamabad" },
-  { value: "lhr", label: "Lahore" },
-  { value: "khi", label: "Karachi" },
-  { value: "fsl", label: "Faisalabad" },
-  { value: "pwr", label: "Peshawar" },
+const genderOptions = [
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
 ];
 
 // Custom styles for React Select
@@ -74,7 +72,12 @@ const RequestProfessor: React.FC = () => {
   const [formData, setFormData] = useState({
     professorName: "",
     professorDepartment: "",
-    professorCampus: "",
+    professorGender: "",
+  });
+
+  const [submissionStatus, setSubmissionStatus] = useState({
+    success: false,
+    message: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,15 +89,26 @@ const RequestProfessor: React.FC = () => {
     setFormData({ ...formData, professorDepartment: selectedOption.value });
   };
 
-  const handleCampusChange = (selectedOption: any) => {
-    setFormData({ ...formData, professorCampus: selectedOption.value });
+  const handleGenderChange = (selectedOption: any) => {
+    setFormData({ ...formData, professorGender: selectedOption.value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Submit logic here
+
+    {/*work to be done.........
+
+    const response = await submitProfessorRequest(
+      formData.professorName,
+      formData.professorDepartment,
+      "pending"
+    );
+    setSubmissionStatus(response);
     console.log(formData);
+
+    */}
   };
+
 
   const goBack = () => {
     window.history.back();
@@ -167,10 +181,10 @@ const RequestProfessor: React.FC = () => {
               whileHover={{ scale: 1.02 }}
             >
               <Select
-                options={campusOptions}
+                options={genderOptions}
                 styles={customSelectStyles}
-                onChange={handleCampusChange}
-                placeholder="Select campus"
+                onChange={handleGenderChange}
+                placeholder="Select Gender"
                 isSearchable={false}
               />
             </motion.div>
@@ -186,6 +200,14 @@ const RequestProfessor: React.FC = () => {
             Submit Request
           </motion.button>
         </form>
+
+        {submissionStatus.message && (
+          <div
+            className={`mt-4 text-center ${submissionStatus.success ? "text-green-500" : "text-red-500"}`}
+          >
+            {submissionStatus.message}
+          </div>
+        )}
       </div>
     </>
   );

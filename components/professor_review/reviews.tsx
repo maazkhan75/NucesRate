@@ -12,6 +12,8 @@ export type ReviewType = {
   user_vote: "downvote" | "upvote" | null;
   review_status: "approved" | "pending";
   is_user_review: boolean;
+  professor_id: number;
+  professor_name: string;
 };
 
 export default async function Reviews({ prof_id }: { prof_id: number }) {

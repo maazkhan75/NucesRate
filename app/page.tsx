@@ -14,7 +14,7 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   if (user) {
-    return redirect("/professors/0");
+    return redirect("/dashboard");
   }
 
   return (
